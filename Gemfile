@@ -38,6 +38,7 @@ gem 'rails-assets-sweetalert', source: 'https://rails-assets.org'
 gem 'sweet-alert-confirm'
 
 gem 'one_signal'
+gem 'faker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -47,7 +48,6 @@ gem 'one_signal'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'faker'
   gem 'byebug'
 end
 
