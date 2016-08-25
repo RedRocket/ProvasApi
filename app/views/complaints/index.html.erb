@@ -1,0 +1,62 @@
+<%= render 'layouts/admin_menu' %>
+<div id="main">
+  <div class="wrapper">
+    <section id="content">
+      <div id="breadcrumbs-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col s12 m12 l12" style="position: relative;">
+              <h5 class="breadcrumbs-title">Denuncias</h5>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section">
+          <div class="row">
+            <div class="col s12 m12 l10 offset-l1">
+              <ul class="collection with-header" style="border: none">
+                <li class="collection-header blue">
+                  <div class="row valign-wrapper">
+
+                  </div>
+                </li>
+                <li class="collection-item center">
+                  <div class="row">
+                    <div class="col s12 m12 l12">
+                      <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th class="center">ID</th>
+                            <th class="center">ID da Prova</th>
+                            <th class="center">Prova</th>
+                            <th class="center">Texto</th>
+                            <th class="center"></th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <% @complaints.each do |complaint|%>
+                            <tr>
+                              <th class="center"><%= complaint.id %></th>
+                              <th class="center"><%= complaint.exams.id %></th>
+                              <th class="center"><%= complaint.exams.name %></th>
+                              <th class="center"><%= complaint.text %></th>
+                              <th class="center">
+                                <%= link_to "Apagar", "/complaints/#{complaint.id}", method: :delete %></th>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+#main {
+    padding-left: 0px !important;
+}
+
+.no-shadow{
+	box-shadow: none !important;
+}
+
+.additional{
+	margin-left: 30px;
+	font-style: italic;
+}

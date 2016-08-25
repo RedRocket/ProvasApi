@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject_id: 1
+  visible: false
+  views: 1
+  period: 1.5
+  name: MyString
+
+two:
+  subject_id: 1
+  visible: false
+  views: 1
+  period: 1.5
+  name: MyString

@@ -1,0 +1,67 @@
+<%= render 'layouts/admin_menu' %>
+<div id="main">
+  <div class="wrapper">
+    <section id="content">
+      <div id="breadcrumbs-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col s12 m12 l12">
+              <h5 class="breadcrumbs-title">Usuários</h5>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section">
+          <div class="row">
+            <div class="col s12 m12 l10 offset-l1">
+              <ul class="collection with-header" style="border: none">
+                <li class="collection-header blue">
+                  <div class="row valign-wrapper">
+
+                  </div>
+                </li>
+                <li class="collection-item center">
+                  <div class="row">
+                    <div class="col s12 m12 l12">
+                      <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th class="center">ID</th>
+                            <th class="center">Nome</th>
+                            <th class="center">E-mail</th>
+                            <th class="center">Telefone</th>
+                            <th class="center">Bloqueado</th>
+                            <th class="center"></th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <% @users.each do |user|%>
+                            <tr>
+                              <th class="center"><%= user.id %></th>
+                              <th class="center"><%= user.name %></th>
+                              <th class="center"><%= user.email %></th>
+                              <th class="center"><%= user.phone %></th>
+                              <th class="center"><%= user.blocked ? "Sim": "Não"%></th>
+                              <% if user.blocked %>
+                                <th class="center"><%= link_to "Desbloquear", block_user_path(id: user.id), method: :patch %></th>
+                              <% else %>
+                                <th class="center"><%= link_to "Bloquear", block_user_path(id: user.id), method: :patch %></th>
+                              <% end %>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

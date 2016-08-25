@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SuaProva</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="_nK">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <%= csrf_meta_tags %>
+  </head>
+  <body id="<%= controller.controller_path.gsub("/", "-") + "-" + controller.action_name %>">
+
+  <%= yield %>
+  <% if !flash[:alert].blank? %>
+    <%= toastr(flash[:alert], 4000) %>
+  <% end %>
+  <% if !flash[:notice].blank? %>
+    <%= toastr(flash[:notice], 4000) %>
+  <% end %>
+  </body>
+</html>
