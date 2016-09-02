@@ -38,8 +38,6 @@ class MessagesController < ApplicationController
           Message.create(user_id: user.id, text: params["text"])
         end
       rescue Exception => e
-        puts '>>>>>'
-        puts e
         redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
       end
     end

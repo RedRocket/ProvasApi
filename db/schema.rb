@@ -53,10 +53,12 @@ ActiveRecord::Schema.define(version: 20160829175411) do
   end
 
   create_table "exam_images", force: :cascade do |t|
-    t.text     "image"
+    t.text     "image_uncompressed"
+    t.string   "image_compressed"
+    t.string   "image_black_and_white"
     t.integer  "exam_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "exam_images", ["exam_id"], name: "index_exam_images_on_exam_id", using: :btree
@@ -69,8 +71,9 @@ ActiveRecord::Schema.define(version: 20160829175411) do
     t.float    "period"
     t.string   "name"
     t.float    "feedback_avarage", default: 0.0
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.boolean  "processed",        default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "exams", ["subject_id"], name: "index_exams_on_subject_id", using: :btree

@@ -41,7 +41,7 @@ module Truckvilleapi
         google_storage_access_key_id:     'GOOGPXXTYJVUOVJEVXW4',
         google_storage_secret_access_key: 'P0+65QHFQk5le6I91sItou/XrBqAgUl6cCIeatwk'
       }
-      config.fog_directory = 'provasapp'
+      config.fog_directory = 'provasapp-141222.appspot.com'
     end
 
     config.time_zone = 'Brasilia'
