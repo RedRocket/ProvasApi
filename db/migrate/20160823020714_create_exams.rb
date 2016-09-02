@@ -8,6 +8,7 @@ class CreateExams < ActiveRecord::Migration
       t.float :period
       t.string :name
       t.float :feedback_avarage, default: 0
+      t.boolean :processed, default: false
 
       t.timestamps null: false
     end

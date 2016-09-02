@@ -30,7 +30,7 @@
                         <label for="name" class="black-text">Nome</label>
                       </div>
                       <div class="input-field col s6">
-                        <%= f.select "course_id", options_from_collection_for_select(@courses, :id, :name), {}, { :class => 'select2' } %>
+                        <%= f.select "course_id", @courses.collect {|u| [u.name + " - " + u.university.name, u.id]}, {}, { :class => 'select2' } %>
                       </div>
                       <div class="input-field col s12">
                         <a href="javascript:history.back()" class="btn waves-effect waves-light left blue lighten-2">Voltar</a>

@@ -32,6 +32,11 @@
                       <div class="input-field col s6">
                         <%= f.select "city_id", options_from_collection_for_select(@cities, :id, :name), {}, { :class => 'select2' } %>
                       </div>
+
+                      <div class="col s12 m8 l8 offset-l2 offset-m2">
+                        <p class="title">Capa</p>
+                        <%= f.file_field :header, class: "dropify"%>
+                      </div>
                       <div class="input-field col s12">
                         <a href="javascript:history.back()" class="btn waves-effect waves-light left blue lighten-2">Voltar</a>
                         <button class="btn waves-effect waves-light right blue darken-1" type="submit" name="action">Salvar
@@ -48,3 +53,7 @@
     </section>
   </div>
 </div>
+
+<script>
+  $('.dropify').dropify();
+</script>

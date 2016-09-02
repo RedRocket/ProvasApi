@@ -10,7 +10,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone
       t.string :birthday
       t.string :push_token
-      t.text :token, default: 0
+      t.text :token
+      t.text :password
       t.boolean :blocked, default: false
 
       t.timestamps null: false

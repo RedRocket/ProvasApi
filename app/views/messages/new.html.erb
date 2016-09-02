@@ -1,0 +1,63 @@
+<%= render 'layouts/admin_menu' %>
+<div id="main">
+  <div class="wrapper">
+    <section id="content">
+      <div class="container">
+        <div class="section">
+          <div class="row">
+              <div class="col s12 m12 l10 offset-l1">
+                <ul class="collection with-header" style="border: none">
+                  <li class="collection-header blue">
+                  </li>
+                  <%= form_tag "/messages", method: :post do %>
+                    <li class="collection-item center">
+                      <div class="row">
+                        <div class="col s12 m12 l12">
+                          <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                            <thead>
+                              <tr>
+                                <th class="center"></th>
+                                <th class="center">Usuário</th>
+                                <th class="center">
+                                  <%= check_box_tag "selectAll"%>
+                                  <label for="selectAll">Enviar para Todos</label>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% @users.each do |user|%>
+                                <tr>
+                                  <th class="center"><%= user.id %></th>
+                                  <th class="center"><%= user.name %></th>
+                                  <th class="center">
+                                    <%= check_box_tag "users[#{user.id}]", user.id -%>
+                                    <label for="users_<%= user.id %>"></label>
+                                  </th>
+                                </tr>
+                              <% end %>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="row">
+                          <div class="col s12 m12 l12">
+                            <div class="input-field col s12">
+                              <%=  text_area_tag "text", nil, class:"materialize-textarea black-border", style:"border-bottom: 1px solid black;" %>
+                              <label for="period" class="black-text">Mensagem</label>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="javascript:history.back()" class="btn waves-effect waves-light left blue lighten-2">Voltar</a>
+                        <button class="btn waves-effect waves-light right blue darken-1" type="submit" name="action">Enviar
+                          </button>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+

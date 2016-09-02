@@ -38,10 +38,10 @@ module Truckvilleapi
     CarrierWave.configure do |config|
       config.fog_credentials = {
         provider:                         'Google',
-        google_storage_access_key_id:     'GOOGXLS4LPXXSVKCRFD5',
-        google_storage_secret_access_key: 'QLEUonQiRiUUxogpRsJpUv+iPYXBQizjJmiyJXKO'
+        google_storage_access_key_id:     'GOOGPXXTYJVUOVJEVXW4',
+        google_storage_secret_access_key: 'P0+65QHFQk5le6I91sItou/XrBqAgUl6cCIeatwk'
       }
-      config.fog_directory = 'provasapp-141222.appspot.com'
+      config.fog_directory = 'provasapp'
     end
 
     config.time_zone = 'Brasilia'

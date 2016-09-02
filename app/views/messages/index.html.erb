@@ -6,11 +6,10 @@
         <div class="container">
           <div class="row">
             <div class="col s12 m12 l12" style="position: relative;">
-              <h5 class="breadcrumbs-title">Disciplinas</h5>
+              <h5 class="breadcrumbs-title">Mensagens</h5>
               <br>
-
               <div class="breadcrumbs-buttons">
-                <a class="btn-floating btn-large blue darken-1 waves-effect waves-light" onclick="window.location.assign('/subjects/new')">
+                <a class="btn-floating btn-large blue darken-1 waves-effect waves-light" onclick="window.location.assign('/messages/new')">
                   <i class="force-total-center large-icon material-icons ion-android-add"></i>
                 </a>
               </div>
@@ -35,21 +34,17 @@
                         <thead>
                           <tr>
                             <th class="center">ID</th>
-                            <th class="center">Disciplina</th>
-                            <th class="center">Curso</th>
-                            <th class="center">Universidade</th>
-                            <th class="center"></th>
+                            <th class="center">Texto</th>
+                            <th class="center">Usuário</th>
                           </tr>
                         </thead>
 
                         <tbody>
-                          <% @subjects.each do |subject|%>
+                          <% @messages.each do |message|%>
                             <tr>
-                              <th class="center"><%= subject.id %></th>
-                              <th class="center"><%= subject.name %></th>
-                              <th class="center"><%= subject.course.name %></th>
-                              <th class="center"><%= subject.course.university.name %></th>
-                              <th class="center"><%= link_to "Editar", edit_subject_path(id: subject.id), method: :get %></th>
+                              <th class="center"><%= message.id %></th>
+                              <th class="center"><%= message.text %></th>
+                              <th class="center"><%= message.user.name %></th>
                             </tr>
                           <% end %>
                         </tbody>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :complaints
   resources :requisitions
   resources :courses
+  resources :messages
 
   get '/edit/' => 'admin#edit'
   patch '/admin' => 'admin#update'
@@ -23,7 +24,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "/admins" => 'admin#show'
-    post "/users" => 'users#show_or_create'
+    post "/users/sso" => 'users#login_sso'
+    post "/users/login" => 'users#login_default'
+    post "/users/create" => 'users#create_default'
+    post "/users/recover_password" => 'users#recover_password'
+
     patch "/users/logout" => 'users#logout'
 
     get 'states' => 'states#index'
