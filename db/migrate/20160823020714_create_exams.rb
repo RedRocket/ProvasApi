@@ -3,10 +3,11 @@ class CreateExams < ActiveRecord::Migration
     create_table :exams do |t|
       t.integer :subject_id, index: true
       t.integer :user_id, index: true
-      t.boolean :visible, default: true
+      t.boolean :visible, default: false
       t.integer :views, default: 0
       t.float :period
       t.string :name
+      t.string :professor_name
       t.float :feedback_avarage, default: 0
       t.boolean :processed, default: false
 

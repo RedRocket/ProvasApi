@@ -30,6 +30,8 @@
                           <tr>
                             <th class="center">ID</th>
                             <th class="center">ID da Prova</th>
+                            <th class="center">Denunciado</th>
+                            <th class="center">Denunciante</th>
                             <th class="center">Prova</th>
                             <th class="center">Texto</th>
                             <th class="center"></th>
@@ -41,6 +43,8 @@
                             <tr>
                               <th class="center"><%= complaint.id %></th>
                               <th class="center"><%= complaint.exams.id %></th>
+                              <th class="center"><%= complaint.exams.user.name %></th>
+                              <th class="center"><%= complaint.user.name %></th>
                               <th class="center"><%= complaint.exams.name %></th>
                               <th class="center"><%= complaint.text %></th>
                               <th class="center">

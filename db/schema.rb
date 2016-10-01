@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829175411) do
+ActiveRecord::Schema.define(version: 20160928025826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,13 @@ ActiveRecord::Schema.define(version: 20160829175411) do
   create_table "complaints", force: :cascade do |t|
     t.text     "text"
     t.integer  "exam_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "complaints", ["exam_id"], name: "index_complaints_on_exam_id", using: :btree
+  add_index "complaints", ["user_id"], name: "index_complaints_on_user_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -66,10 +68,11 @@ ActiveRecord::Schema.define(version: 20160829175411) do
   create_table "exams", force: :cascade do |t|
     t.integer  "subject_id"
     t.integer  "user_id"
-    t.boolean  "visible",          default: true
+    t.boolean  "visible",          default: false
     t.integer  "views",            default: 0
     t.float    "period"
     t.string   "name"
+    t.string   "professor_name"
     t.float    "feedback_avarage", default: 0.0
     t.boolean  "processed",        default: false
     t.datetime "created_at",                       null: false
@@ -78,6 +81,16 @@ ActiveRecord::Schema.define(version: 20160829175411) do
 
   add_index "exams", ["subject_id"], name: "index_exams_on_subject_id", using: :btree
   add_index "exams", ["user_id"], name: "index_exams_on_user_id", using: :btree
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "exam_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["exam_id"], name: "index_favorites_on_exam_id", using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "feedbacks", force: :cascade do |t|
     t.integer  "grade"
@@ -96,9 +109,12 @@ ActiveRecord::Schema.define(version: 20160829175411) do
 
   create_table "requisitions", force: :cascade do |t|
     t.text     "text"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "requisitions", ["user_id"], name: "index_requisitions_on_user_id", using: :btree
 
   create_table "states", force: :cascade do |t|
     t.string   "name"
@@ -141,10 +157,18 @@ ActiveRecord::Schema.define(version: 20160829175411) do
     t.string   "birthday"
     t.string   "push_token"
     t.text     "token"
+    t.text     "recover_password_token"
     t.text     "password"
-    t.boolean  "blocked",       default: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.boolean  "blocked",                default: false
+    t.integer  "state_id"
+    t.integer  "city_id"
+    t.integer  "university_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
+
+  add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
+  add_index "users", ["state_id"], name: "index_users_on_state_id", using: :btree
+  add_index "users", ["university_id"], name: "index_users_on_university_id", using: :btree
 
 end

@@ -3,6 +3,7 @@ class CreateComplaints < ActiveRecord::Migration
     create_table :complaints do |t|
       t.text :text
       t.integer :exam_id, index: true
+      t.integer :user_id, index: true
 
       t.timestamps null: false
     end

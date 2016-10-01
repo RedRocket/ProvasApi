@@ -4,12 +4,14 @@ class MessagesController < ApplicationController
   end
 
   def new
+    @states = State.all
+    @universities = University.all
     @message = Message.new
     @users = User.all
   end
 
   def create
-    if(params["selectAll"] == true)
+    if(params["selectAll"] != nil)
       @users = User.all
     else
       if params["users"] != nil
@@ -18,6 +20,14 @@ class MessagesController < ApplicationController
       else
         @users = []
       end
+    end
+
+    if(params["state_id"] != nil)
+      @users = @user.where(state_id: params["state_id"])
+    end
+
+    if(params["university_id"] != nil)
+      @users = @user.where(university_id: params["university_id"])
     end
 
     if @users.length > 0

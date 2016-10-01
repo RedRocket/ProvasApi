@@ -24,10 +24,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "/admins" => 'admin#show'
+    get "/users/:id/exams" => 'users#my_exams'
     post "/users/sso" => 'users#login_sso'
     post "/users/login" => 'users#login_default'
     post "/users/create" => 'users#create_default'
-    post "/users/recover_password" => 'users#recover_password'
+    post "/users/set_recover_token" => 'users#set_recover_token'
+    post "/users/set_new_password" => 'users#set_new_password'
+    post "/users/:id/update" => 'users#update'
 
     patch "/users/logout" => 'users#logout'
 
@@ -48,6 +51,7 @@ Rails.application.routes.draw do
 
     post 'requisitions' => "requisitions#create"
 
+    post 'exams/' => "exams#create"
     patch 'exams/:id/add_view' => "exams#add_view"
     get 'exams/:id' => "exams#show"
   end

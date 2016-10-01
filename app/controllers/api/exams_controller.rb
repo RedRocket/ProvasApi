@@ -6,6 +6,21 @@ class Api::ExamsController < ApplicationController
   end
 
   def create
+    @exam = Exam.create(exam_params)
+
+    render json: @exam.to_json(), status: :ok
+  end
+
+  def get_images
+    @images = Exam.find(params[:id]).exam_images
+
+    render json: @images.to_json(), status: :ok
+  end
+
+  def get_image
+    @image = Exam.find(params[:id]).exam_images.first
+
+    render json: @image.to_json(), status: :ok
   end
 
   def update
@@ -31,6 +46,6 @@ class Api::ExamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exam_params
-      params.permit(:name, :subject_id, :visible, :views, :period)
+      params.permit(:name, :subject_id, :views, :period, :user_id)
     end
 end

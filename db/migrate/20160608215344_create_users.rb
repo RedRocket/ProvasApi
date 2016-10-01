@@ -11,8 +11,13 @@ class CreateUsers < ActiveRecord::Migration
       t.string :birthday
       t.string :push_token
       t.text :token
+      t.text :recover_password_token
       t.text :password
       t.boolean :blocked, default: false
+
+      t.integer :state_id, index: true
+      t.integer :city_id, index: true
+      t.integer :university_id, index: true
 
       t.timestamps null: false
     end

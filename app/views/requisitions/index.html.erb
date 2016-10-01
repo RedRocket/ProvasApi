@@ -30,6 +30,7 @@
                           <tr>
                             <th class="center">ID</th>
                             <th class="center">Texto</th>
+                            <th class="center">Requisitante</th>
                             <th class="center"></th>
                           </tr>
                         </thead>
@@ -39,6 +40,7 @@
                             <tr>
                               <th class="center"><%= requisition.id %></th>
                               <th class="center"><%= requisition.text %></th>
+                              <th class="center"><%= requisition.user.name %></th>
                               <th class="center">
                                 <%= link_to "Apagar", "/requisitions/#{requisition.id}", method: :delete %></th>
                             </tr>
