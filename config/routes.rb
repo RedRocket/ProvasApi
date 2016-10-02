@@ -52,8 +52,12 @@ Rails.application.routes.draw do
     post 'requisitions' => "requisitions#create"
 
     post 'exams/' => "exams#create"
+    post 'exams/images' => "exams#add_image"
     patch 'exams/:id/add_view' => "exams#add_view"
+
     get 'exams/:id' => "exams#show"
+    get 'exams/:id/thumbs' => "exams#get_thumb"
+    get 'exams/:id/images' => "exams#get_images"
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
