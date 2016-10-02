@@ -24,8 +24,6 @@ class Api::ExamsController < ApplicationController
   end
 
   def add_image
-    p ">>>>>>>>>>"
-    p params
     @image = ExamImage.create(image_uncompressed: params[:image], exam_id: params[:exam_id])
 
     render json: @image.to_json(), status: :ok

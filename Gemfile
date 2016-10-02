@@ -29,6 +29,8 @@ gem 'rails_12factor', group: :production
 
 gem 'net-ssh'
 gem 'carrierwave'
+gem 'carrierwave-base64'
+
 
 gem "fog"
 gem "mime-types"
