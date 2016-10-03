@@ -58,6 +58,8 @@ Rails.application.routes.draw do
     get 'exams/:id' => "exams#show"
     get 'exams/:id/thumbs' => "exams#get_thumb"
     get 'exams/:id/images' => "exams#get_images"
+
+    delete 'exams/:id/images' => "exams#remove_images"
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
