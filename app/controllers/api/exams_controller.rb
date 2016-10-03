@@ -40,6 +40,9 @@ class Api::ExamsController < ApplicationController
   end
 
   def delete
+    Exam.find(params[:id]).destroy
+
+    render json: {}.to_json(), status: :ok
   end
 
   def add_view

@@ -60,6 +60,7 @@ Rails.application.routes.draw do
     get 'exams/:id/images' => "exams#get_images"
 
     delete 'exams/:id/images' => "exams#remove_images"
+    delete 'exams/:id' => "exams#delete"
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
