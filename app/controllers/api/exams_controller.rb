@@ -30,7 +30,7 @@ class Api::ExamsController < ApplicationController
   end
 
   def remove_images
-    ExamImage.where(id: params[:id]).destroy
+    ExamImage.find(params[:id]).destroy
 
     render json: {}.to_json(), status: :ok
   end
