@@ -3,6 +3,11 @@ class Api::UsersController < ApplicationController
 
   def login_sso
     @user = User.new(user_params)
+
+    if(user_params[:picture] != nil)
+      @user.remote_picture_url = user_params[:picture]
+    end
+
     @check_existing_user = User.find_by token: @user.token, email: @user.email
 
     if @check_existing_user == nil
