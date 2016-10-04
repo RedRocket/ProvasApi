@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     post "/users/create" => 'users#create_default'
     post "/users/set_recover_token" => 'users#set_recover_token'
     post "/users/set_new_password" => 'users#set_new_password'
-    post "/users/:id/update" => 'users#update'
+    post "/users/:token/update" => 'users#update'
 
     patch "/users/logout" => 'users#logout'
 

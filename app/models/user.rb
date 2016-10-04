@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   belongs_to :state
 
   has_many :favorites
-  mount_uploader :picture, PhotoUploader
+  mount_base64_uploader :picture, PhotoUploader
 end
