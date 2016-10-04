@@ -56,6 +56,7 @@ class Api::UsersController < ApplicationController
     @check_existing_user = User.find_by email: @user.email, password: @user.password
 
     if @check_existing_user == nil
+      @user.token = "common" + SecureRandom.hex(13)
       @user.save
       render json: @user.to_json()
     else
