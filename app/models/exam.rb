@@ -5,4 +5,5 @@ class Exam < ActiveRecord::Base
   has_many :exam_images
 
   has_many :favorites
+  scope :visible, -> { where(visible: true) }
 end

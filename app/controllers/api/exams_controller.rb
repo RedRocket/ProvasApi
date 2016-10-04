@@ -25,12 +25,17 @@ class Api::ExamsController < ApplicationController
 
   def add_image
     @image = ExamImage.create(image_uncompressed: params[:image], exam_id: params[:exam_id])
+    @exam = Exam.find(id: params[:exam_id])
+
+    unless @exam.visible
+      @exam.update(visible: true)
+    end
 
     render json: @image.to_json(), status: :ok
   end
 
   def list
-    @exams = Exam.where(subject_id: params[:id])
+    @exams = Exam.where(subject_id: params[:id]).visible
 
     render json: @exams.to_json(), status: :ok
   end
