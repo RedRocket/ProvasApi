@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     patch 'exams/:id/add_view' => "exams#add_view"
 
     get 'exams/:id' => "exams#show"
+    get 'exams/:id/list' => "exams#list"
     get 'exams/:id/thumbs' => "exams#get_thumb"
     get 'exams/:id/images' => "exams#get_images"
 

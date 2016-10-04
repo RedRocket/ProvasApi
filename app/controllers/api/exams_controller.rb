@@ -29,6 +29,12 @@ class Api::ExamsController < ApplicationController
     render json: @image.to_json(), status: :ok
   end
 
+  def list
+    @exams = Exam.where(subject_id: params[:id])
+
+    render json: @exams.to_json(), status: :ok
+  end
+
   def remove_images
     ExamImage.find(params[:id]).destroy
 
