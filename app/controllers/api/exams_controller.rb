@@ -18,7 +18,7 @@ class Api::ExamsController < ApplicationController
   end
 
   def get_thumb
-    @image = Exam.find(params[:id]).exam_images.first.pluck(:image_uncompressed, :exam_id)
+    @image = Exam.find(params[:id]).exam_images.pluck(:image_uncompressed, :exam_id).first
 
     render json: @image.to_json(), status: :ok
   end
