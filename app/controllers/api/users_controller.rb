@@ -42,10 +42,14 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find_by token: user_params["token"]
 
-    if @user.update(user_params)
-      render json: @user.to_json(), status: :created
+    if @user != null
+      if @user.update(user_params)
+        render json: @user.to_json(), status: :created
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     else
-      render json: @user.errors, status: :unprocessable_entity
+        render json: {}, status: :ok
     end
   end
 
