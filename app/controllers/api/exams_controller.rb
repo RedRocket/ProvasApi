@@ -27,7 +27,7 @@ class Api::ExamsController < ApplicationController
     @image = ExamImage.create(image_uncompressed: params[:image], exam_id: params[:exam_id])
     @exam = Exam.find(id: params[:exam_id])
 
-    unless @exam.visible
+    if @exam.visible == false
       @exam.update(visible: true)
     end
 
