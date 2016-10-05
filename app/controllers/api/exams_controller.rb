@@ -37,7 +37,7 @@ class Api::ExamsController < ApplicationController
   def list
     @exams = Exam.where(subject_id: params[:id]).visible
 
-    render json: @exams.to_json(), status: :ok
+    render json: @exams.to_json(include: :user), status: :ok
   end
 
   def remove_images
