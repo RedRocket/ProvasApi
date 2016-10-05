@@ -49,7 +49,7 @@ class Api::UsersController < ApplicationController
         render json: @user.errors, status: :unprocessable_entity
       end
     else
-        render json: {}, status: :ok
+      render json: {}, status: :ok
     end
   end
 
