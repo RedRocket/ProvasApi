@@ -23,7 +23,7 @@ class Api::UsersController < ApplicationController
   end
 
   def my_exams
-    exams = User.find_by(id: params["id"]).exams
+    @exams = User.find_by(id: params["id"]).exams
 
     render json: @exams.to_json(include: :subject), status: :ok
   end
