@@ -1,7 +1,7 @@
 class Api::FavoritesController < ApplicationController
 
   def create
-    @favorite = Favorite.create(user_params)
+    @favorite = Favorite.create(exam_id: params["exam_id"], user_id: params["user_id"])
 
     render json: @favorite.to_json(), status: :ok
   end
