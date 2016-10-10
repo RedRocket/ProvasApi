@@ -9,8 +9,9 @@ class Api::FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.where(exam_id: params["exam_id"], user_id: params["user_id"])
 
-    @favorite.destroy
-
+    if(favorite != nil)
+      @favorite.destroy
+    end
     render json: {}.to_json(), status: :ok
   end
 
