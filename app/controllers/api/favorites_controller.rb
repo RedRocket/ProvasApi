@@ -7,7 +7,7 @@ class Api::FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find(id: params["id"])
+    @favorite = Favorite.find(params["id"])
 
     @favorite.destroy
 
