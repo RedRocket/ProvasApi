@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class PhotoUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
+  process resize_to_fit: [800, 800]
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -9,6 +11,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :fog
   # storage :fog
+
+  version :thumb do
+    process resize_to_fill: [200,200]
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
