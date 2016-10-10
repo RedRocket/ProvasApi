@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   namespace :api do
     get "/admins" => 'admin#show'
     get "/users/:id/exams" => 'users#my_exams'
-    get "/users/:id/favorites" => 'users#my_favorites'
+    get "/users/:id/favorites" => 'users#my_favorite_exams'
     post "/users/sso" => 'users#login_sso'
     post "/users/login" => 'users#login_default'
     post "/users/create" => 'users#create_default'

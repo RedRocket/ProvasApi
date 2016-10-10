@@ -23,7 +23,15 @@ class Api::UsersController < ApplicationController
   end
 
   def my_exams
-    @exams = User.find_by(id: params["id"]).exams
+    exams = User.find_by(id: params["id"]).exams
+
+    render json: @exams.to_json(include: :subject), status: :ok
+  end
+
+  def my_favorite_exams
+    exams_id = Favorite.where(user_id: params["id"]).pluck(:exam_id)
+
+    @exams = Exam.where(id: exams_id)
 
     render json: @exams.to_json(include: :subject), status: :ok
   end
