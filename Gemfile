@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 
 gem 'net-ssh'
+gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-base64'
 
