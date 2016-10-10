@@ -52,6 +52,6 @@ class ExamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exam_params
-      params.require(:exam).permit(:name, :subject_id, :visible, :views, :period, :user_id)
+      params.require(:exam).permit(:name, :subject_id, :visible, :views, :period, :user_id, :anonymous)
     end
 end

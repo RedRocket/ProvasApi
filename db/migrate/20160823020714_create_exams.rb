@@ -10,6 +10,7 @@ class CreateExams < ActiveRecord::Migration
       t.string :professor_name
       t.float :feedback_avarage, default: 0
       t.boolean :processed, default: false
+      t.boolean :anonymous, default: false
 
       t.timestamps null: false
     end
