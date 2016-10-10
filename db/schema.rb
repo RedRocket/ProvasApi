@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160928025826) do
     t.string   "professor_name"
     t.float    "feedback_avarage", default: 0.0
     t.boolean  "processed",        default: false
+    t.boolean  "anonymous",        default: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end
