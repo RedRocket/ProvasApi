@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   namespace :api do
     get "/admins" => 'admin#show'
     get "/users/:id/exams" => 'users#my_exams'
+    get "/users/:id/favorites" => 'users#my_favorites'
     post "/users/sso" => 'users#login_sso'
     post "/users/login" => 'users#login_default'
     post "/users/create" => 'users#create_default'
@@ -62,6 +63,11 @@ Rails.application.routes.draw do
 
     delete 'exams/:id/images' => "exams#remove_images"
     delete 'exams/:id' => "exams#delete"
+
+
+    get "favorites/:id" => 'favorites#index'
+    post "favorites/" => 'favorites#create'
+    delete "favorites/:id" => 'favorites#destroy'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
