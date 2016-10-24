@@ -12,13 +12,13 @@ class Api::UsersController < ApplicationController
 
     if @check_existing_user == nil
       if @user.save
-        render json: @user.to_json(include: scores), status: :created
+        render json: @user.to_json(include: :scores), status: :created
       else
         render json: @user.errors, status: :unprocessable_entity
       end
     else
       @check_existing_user.update(push_token: user_params["push_token"])
-      render json: @check_existing_user.to_json(include: scores)
+      render json: @check_existing_user.to_json(include: :scores)
     end
   end
 
