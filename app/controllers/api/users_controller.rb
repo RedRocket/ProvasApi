@@ -43,7 +43,7 @@ class Api::UsersController < ApplicationController
       render json: {}.to_json(), status: :unprocessable_entity
     else
       @user.update(push_token: user_params["push_token"])
-      render json: @user.to_json(include: scores)
+      render json: @user.to_json(include: :scores)
     end
   end
 
