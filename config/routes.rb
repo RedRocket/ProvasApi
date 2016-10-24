@@ -33,6 +33,9 @@ Rails.application.routes.draw do
     post "/users/set_new_password" => 'users#set_new_password'
     post "/users/:token/update" => 'users#update'
 
+
+    post "/scores/" => 'scores#create'
+
     patch "/users/logout" => 'users#logout'
 
     get 'states' => 'states#index'
@@ -54,6 +57,7 @@ Rails.application.routes.draw do
 
     post 'exams/' => "exams#create"
     post 'exams/images' => "exams#add_image"
+
     patch 'exams/:id/add_view' => "exams#add_view"
 
     get 'exams/:id' => "exams#show"

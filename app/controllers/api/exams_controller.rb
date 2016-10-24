@@ -73,6 +73,6 @@ class Api::ExamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exam_params
-      params.permit(:name, :subject_id, :views, :period, :user_id, :exam_id, :image, :anonymous)
+      params.permit(:name, :subject_id, :views, :period, :user_id, :exam_id, :image, :anonymous, :professor_name)
     end
 end

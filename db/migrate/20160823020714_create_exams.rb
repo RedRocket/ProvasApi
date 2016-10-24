@@ -8,7 +8,7 @@ class CreateExams < ActiveRecord::Migration
       t.float :period
       t.string :name
       t.string :professor_name
-      t.float :feedback_avarage, default: 0
+      t.float :feedback_avarage, default: -1
       t.boolean :processed, default: false
       t.boolean :anonymous, default: false
 

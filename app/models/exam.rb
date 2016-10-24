@@ -3,6 +3,7 @@ class Exam < ActiveRecord::Base
   belongs_to :user
   has_many :complaints
   has_many :exam_images
+  has_many :scores
 
   has_many :favorites
   scope :visible, -> { where(visible: true) }

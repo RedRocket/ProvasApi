@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928025826) do
+ActiveRecord::Schema.define(version: 20161023215535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20160928025826) do
     t.float    "period"
     t.string   "name"
     t.string   "professor_name"
-    t.float    "feedback_avarage", default: 0.0
+    t.float    "feedback_avarage", default: -1.0
     t.boolean  "processed",        default: false
     t.boolean  "anonymous",        default: false
     t.datetime "created_at",                       null: false
@@ -116,6 +116,14 @@ ActiveRecord::Schema.define(version: 20160928025826) do
   end
 
   add_index "requisitions", ["user_id"], name: "index_requisitions_on_user_id", using: :btree
+
+  create_table "scores", force: :cascade do |t|
+    t.integer  "exam_id"
+    t.integer  "user_id"
+    t.float    "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "states", force: :cascade do |t|
     t.string   "name"
