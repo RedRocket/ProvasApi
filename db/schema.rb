@@ -125,6 +125,9 @@ ActiveRecord::Schema.define(version: 20161023215535) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "scores", ["exam_id"], name: "index_scores_on_exam_id", using: :btree
+  add_index "scores", ["user_id"], name: "index_scores_on_user_id", using: :btree
+
   create_table "states", force: :cascade do |t|
     t.string   "name"
     t.string   "UF"
