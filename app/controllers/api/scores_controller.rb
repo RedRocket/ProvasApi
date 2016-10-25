@@ -14,7 +14,9 @@ class Api::ScoresController < ApplicationController
     @exam = Exam.find(@score.exam_id)
     @exam.update(feedback_avarage: (@exam.scores.sum(:value)/@exam.scores.size))
 
-    render json: @score.to_json(), status: :ok
+    @scores = User.find(@score.user_id).scores
+
+    render json: @scores.to_json(), status: :ok
   end
 
   private
