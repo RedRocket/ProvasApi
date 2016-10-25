@@ -1,9 +1,17 @@
 class Api::ScoresController < ApplicationController
 
   def create
-    @score = Score.create(score_params)
+    @score = Score.new(score_params)
 
-    @exam = @score.exam
+    @existing_score = Score.find_by user_id: @score.user_id, exam_id: @score.exam_id
+
+    if @existing_score == nil
+      @score.save
+    else
+      @existing_score.update(value: @score.value)
+    end
+
+    @exam = Exam.find(@score.exam_id)
     @exam.update(feedback_avarage: (@exam.scores.sum(:value)/@exam.scores.size))
 
     render json: @score.to_json(), status: :ok
