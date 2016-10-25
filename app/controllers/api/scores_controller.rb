@@ -4,7 +4,7 @@ class Api::ScoresController < ApplicationController
     @score = Score.create(score_params)
 
     @exam = @score.exam
-    @exam.update(medium_feedback: (@exam.scores.sum(:value)/@exam.scores.size))
+    @exam.update(feedback_avarage: (@exam.scores.sum(:value)/@exam.scores.size))
 
     render json: @score.to_json(), status: :ok
   end
