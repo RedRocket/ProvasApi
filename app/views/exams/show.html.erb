@@ -40,7 +40,9 @@
                     <p>Fotos</p>
                     <div class="row">
                       <% @photos.each do |photo| %>
-                        <img src="<%= photo.image_uncompressed.url %>">
+                        <div class="col s12 m6 l6">
+                          <img src="<%= photo.image_uncompressed.url %>">
+                        </div>
                       <% end %>
                     </div>
                   </li>
