@@ -42,8 +42,8 @@
                           <% @complaints.each do |complaint|%>
                             <tr>
                               <th class="center"><%= complaint.id %></th>
-                              <th class="center"><%= complaint.exams.id %></th>
-                              <th class="center"><%= complaint.exams.user.name %></th>
+                              <th class="center"><%= complaint.exam.id %></th>
+                              <th class="center"><%= complaint.exam.user.name %></th>
                               <th class="center"><%= complaint.user.name %></th>
                               <th class="center"><%= complaint.exams.name %></th>
                               <th class="center"><%= complaint.text %></th>
