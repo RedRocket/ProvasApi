@@ -39,7 +39,9 @@
                   <li class="collection-item">
                     <p>Fotos</p>
                     <div class="row">
-
+                      <% @photos.each do |photo| %>
+                        <img src="<%= photo.image_uncompressed.url %>">
+                      <% end %>
                     </div>
                   </li>
                 </ul>

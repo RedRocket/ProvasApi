@@ -17,6 +17,6 @@ class Api::RequisitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def requisition_params
-      params.permit(:text)
+      params.permit(:text, :user_id)
     end
 end

@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     post "/users/:token/update" => 'users#update'
 
 
-    post "/scores/" => 'scores#create'
+    post "scores" => 'scores#create'
 
     patch "/users/logout" => 'users#logout'
 

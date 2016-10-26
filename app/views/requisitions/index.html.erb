@@ -40,7 +40,11 @@
                             <tr>
                               <th class="center"><%= requisition.id %></th>
                               <th class="center"><%= requisition.text %></th>
-                              <th class="center"><%= requisition.user.name %></th>
+                              <th class="center">
+                                <% if requisition.user != nil %>
+                                  <%= requisition.user.name %>
+                                <% end %>
+                              </th>
                               <th class="center">
                                 <%= link_to "Apagar", "/requisitions/#{requisition.id}", method: :delete %></th>
                             </tr>

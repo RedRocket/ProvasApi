@@ -5,6 +5,7 @@ class ExamsController < ApplicationController
   end
 
   def show
+    @photos = @exams.exam_images
   end
 
   def new
