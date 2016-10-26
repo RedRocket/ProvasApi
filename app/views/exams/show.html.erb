@@ -41,7 +41,7 @@
                     <div class="row">
                       <% @photos.each do |photo| %>
                         <div class="col s12 m6 l6">
-                          <img src="<%= photo.image_uncompressed.url %>">
+                          <img src="<%= photo.image_uncompressed.url %>" style="width: 100%;">
                         </div>
                       <% end %>
                     </div>
