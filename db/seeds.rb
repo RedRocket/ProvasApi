@@ -70,22 +70,3 @@ cities.each_with_index do |state, index|
     City.create(name: city, state_id: index + 1)
   end
 end
-
-
-
-(1 .. 100).each do |index|
-  User.create(
-    name: Faker::Name.name,
-    picture: Faker::Avatar.image,
-    email: Faker::Internet.email,
-    phone: Faker::PhoneNumber.cell_phone,
-    birthday: Faker::Date.between(2.days.ago, Date.today)
-  )
-end
-
-(1 .. 100).each do |index|
-  University.create(
-    name: Faker::Name.name,
-    city_id: Faker::Number.between(1, 20),
-  )
-end

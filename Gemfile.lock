@@ -199,6 +199,7 @@ GEM
     one_signal (1.2.0)
     pg (0.18.3)
     pkg-config (1.1.7)
+    puma (3.6.2)
     rack (1.6.4)
     rack-cors (0.4.0)
     rack-test (0.6.3)
@@ -293,6 +294,7 @@ DEPENDENCIES
   net-ssh
   one_signal
   pg
+  puma
   rack-cors
   rails (= 4.2.4)
   rails-assets-sweetalert!
