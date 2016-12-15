@@ -39,7 +39,7 @@ test:
   pool: 5
 
 production:
-  adapter: postgresq
+  adapter: postgresql
   encoding: unicode
   database: <%= ENV['RDS_DB_NAME'] %>
   username: <%= ENV['RDS_USERNAME'] %>
