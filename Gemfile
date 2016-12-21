@@ -32,7 +32,7 @@ gem 'net-ssh'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-base64'
-
+gem 'ropencv'
 
 gem "fog"
 gem "mime-types"
@@ -43,6 +43,7 @@ gem 'sweet-alert-confirm'
 
 gem 'one_signal'
 gem 'faker'
+gem 'delayed_job_active_record'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
