@@ -83,6 +83,8 @@ class ExamImage < ActiveRecord::Base
       self.image_enhenced = file
 
       self.save!
+
+      self.exam.check_for_enhenced
     end
   end
 end
