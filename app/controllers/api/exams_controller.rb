@@ -24,7 +24,9 @@ class Api::ExamsController < ApplicationController
   end
 
   def add_image
-    @image = ExamImage.create(image_uncompressed: params[:image], exam_id: params[:exam_id])
+    @image = ExamImage.new(image_uncompressed: params[:image], exam_id: params[:exam_id])
+    @image.save!
+
     @exam = Exam.find(params[:exam_id])
 
     if @exam.visible == false

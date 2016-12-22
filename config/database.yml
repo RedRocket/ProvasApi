@@ -14,7 +14,4 @@ production:
   adapter: postgresql
   encoding: unicode
   database: provas_production
-  username: provas
-  password: 72139118
-  host: localhost
-  port: 5432
+  pool: 5
