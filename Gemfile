@@ -43,6 +43,7 @@ gem 'sweet-alert-confirm'
 gem 'one_signal'
 gem 'faker'
 gem 'delayed_job_active_record'
+gem 'ropencv'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
