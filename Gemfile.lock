@@ -310,6 +310,8 @@ GEM
       trollop (~> 2.1)
     rdoc (4.3.0)
     ref (2.0.0)
+    rollbar (2.11.5)
+      multi_json
     ropencv (0.0.21)
       ffi (~> 1.9.0)
       rbind (>= 0.0.27)
@@ -388,6 +390,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails-assets-sweetalert!
   rails_12factor
+  rollbar (~> 2.11.3)
   ropencv
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
