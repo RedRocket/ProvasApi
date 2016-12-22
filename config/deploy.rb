@@ -30,3 +30,6 @@ set :puma_preload_app, false
 set :rollbar_token, '58947bc1309c4f19a8093716a7f1adcf'
 set :rollbar_env, Proc.new { fetch :stage }
 set :rollbar_role, Proc.new { :app }
+set :delayed_job_workers, 2
+
+set :delayed_job_pid_dir, '/tmp'

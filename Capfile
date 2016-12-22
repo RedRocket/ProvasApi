@@ -1,5 +1,6 @@
 # Load DSL and set up stages
 require "capistrano/setup"
+require 'capistrano/delayed_job'
 
 # Include default deployment tasks
 require "capistrano/deploy"
