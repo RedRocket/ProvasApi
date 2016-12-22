@@ -4,6 +4,7 @@ class CreateExamImages < ActiveRecord::Migration
       t.text :image_uncompressed
       t.string :image_compressed
       t.string :image_black_and_white
+      t.string :image_grey_scale
       t.string :image_enhenced
       t.integer :exam_id, index: true
 
