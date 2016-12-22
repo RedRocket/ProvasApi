@@ -28,7 +28,7 @@ class ExamImage < ActiveRecord::Base
 
       self.image_black_and_white = file
 
-      self.save
+      self.save!
     end
   end
 end
