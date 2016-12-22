@@ -31,7 +31,6 @@ gem 'net-ssh'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-base64'
-gem 'ruby-opencv'
 
 gem "fog"
 gem "mime-types"

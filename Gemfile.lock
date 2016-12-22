@@ -313,7 +313,6 @@ GEM
     ropencv (0.0.21)
       ffi (~> 1.9.0)
       rbind (>= 0.0.27)
-    ruby-opencv (0.0.17)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -390,7 +389,6 @@ DEPENDENCIES
   rails-assets-sweetalert!
   rails_12factor
   ropencv
-  ruby-opencv
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
