@@ -5,15 +5,6 @@ class ExamImage < ActiveRecord::Base
   mount_uploader :image_grey_scale, PhotoUploader
   mount_uploader :image_enhenced, PhotoUploader
 
-  def process_images
-    if previous_changes[:image_uncompressed]
-      self.process_image_black_and_white
-      self.process_image_grey_scale
-      self.process_image_enhenced
-    end
-  end
-  handle_asynchronously :process_images
-
   def process_image_black_and_white
     file_name = "#{Rails.root}/tmp/temp-#{self.id}.jpg"
 
@@ -40,6 +31,7 @@ class ExamImage < ActiveRecord::Base
 
     self.exam.check_for_black_and_white
   end
+  handle_asynchronously :process_image_black_and_white
 
   def process_image_grey_scale
     file_name = "#{Rails.root}/tmp/temp-#{self.id}.jpg"
@@ -63,6 +55,7 @@ class ExamImage < ActiveRecord::Base
 
     self.exam.check_for_grey_scale
   end
+  handle_asynchronously :process_image_grey_scale
 
 
   def process_image_enhenced
@@ -87,5 +80,6 @@ class ExamImage < ActiveRecord::Base
 
     self.exam.check_for_enhenced
   end
+  handle_asynchronously :process_image_enhenced
 
 end

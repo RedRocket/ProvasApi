@@ -1,6 +1,5 @@
 # Load DSL and set up stages
 require "capistrano/setup"
-require 'capistrano/delayed_job'
 
 # Include default deployment tasks
 require "capistrano/deploy"
@@ -10,6 +9,7 @@ require 'capistrano/rails/assets' # for asset handling add
 require 'capistrano/rails/migrations' # for running migrations
 require 'capistrano/puma'
 require 'rollbar/capistrano3'
+require 'capistrano/delayed_job'
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"

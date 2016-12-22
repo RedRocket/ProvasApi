@@ -26,7 +26,9 @@ class Api::ExamsController < ApplicationController
   def add_image
     @image = ExamImage.new(image_uncompressed: params[:image], exam_id: params[:exam_id])
     @image.save!
-    @image.process_images
+    @image.process_image_enhenced
+    @image.process_image_black_and_white
+    @image.process_image_grey_scale
 
     @exam = Exam.find(params[:exam_id])
 
