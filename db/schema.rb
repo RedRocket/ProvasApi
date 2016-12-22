@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222173600) do
+ActiveRecord::Schema.define(version: 20161220200444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20161222173600) do
     t.text     "image_uncompressed"
     t.string   "image_compressed"
     t.string   "image_black_and_white"
+    t.string   "image_grey_scale"
     t.string   "image_enhenced"
     t.integer  "exam_id"
     t.datetime "created_at",            null: false
@@ -85,16 +86,18 @@ ActiveRecord::Schema.define(version: 20161222173600) do
   create_table "exams", force: :cascade do |t|
     t.integer  "subject_id"
     t.integer  "user_id"
-    t.boolean  "visible",          default: false
-    t.integer  "views",            default: 0
+    t.boolean  "visible",                   default: false
+    t.integer  "views",                     default: 0
     t.float    "period"
     t.string   "name"
     t.string   "professor_name"
-    t.float    "feedback_avarage", default: -1.0
-    t.boolean  "processed",        default: false
-    t.boolean  "anonymous",        default: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.float    "feedback_avarage",          default: -1.0
+    t.boolean  "processed_black_and_white", default: false
+    t.boolean  "processed_enhenced",        default: false
+    t.boolean  "processed_grey_scale",      default: false
+    t.boolean  "anonymous",                 default: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   add_index "exams", ["subject_id"], name: "index_exams_on_subject_id", using: :btree

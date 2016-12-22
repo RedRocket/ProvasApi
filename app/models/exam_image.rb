@@ -2,18 +2,17 @@ class ExamImage < ActiveRecord::Base
   belongs_to :exam
   mount_base64_uploader :image_uncompressed, PhotoUploader
   mount_uploader :image_black_and_white, PhotoUploader
-  mount_uploader :process_image_grey_scale, PhotoUploader
-  mount_uploader :process_image_enhenced, PhotoUploader
-  after_commit :process_image, on: [:create, :update]
+  mount_uploader :image_grey_scale, PhotoUploader
+  mount_uploader :image_enhenced, PhotoUploader
 
-  def process_image
+  def process_images
     if previous_changes[:image_uncompressed]
       self.process_image_black_and_white
       self.process_image_grey_scale
       self.process_image_enhenced
     end
   end
-
+  handle_asynchronously :process_images
 
   def process_image_black_and_white
     file_name = "#{Rails.root}/tmp/temp-#{self.id}.jpg"
@@ -41,7 +40,6 @@ class ExamImage < ActiveRecord::Base
 
     self.exam.check_for_black_and_white
   end
-
 
   def process_image_grey_scale
     file_name = "#{Rails.root}/tmp/temp-#{self.id}.jpg"
@@ -89,4 +87,5 @@ class ExamImage < ActiveRecord::Base
 
     self.exam.check_for_enhenced
   end
+
 end
