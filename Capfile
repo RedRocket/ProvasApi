@@ -10,6 +10,7 @@ require 'capistrano/rails/migrations' # for running migrations
 require 'capistrano/puma'
 require 'rollbar/capistrano3'
 require 'capistrano/delayed_job'
+require 'capistrano/rails/console'
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"

@@ -39,12 +39,6 @@
                           </table>
                         </div>
                         <div class="row">
-                          <div class="input-field col s6">
-                            <%= select_tag "state_id", options_from_collection_for_select(@states, :id, :name), class: 'select2' , include_blank: "Estados" %>
-                          </div>
-                           <div class="input-field col s6">
-                            <%= select_tag "university_id", options_from_collection_for_select(@universities, :id, :name), class: 'select2', include_blank: "Universidades" %>
-                          </div>
                           <div class="col s12 m12 l12">
                             <div class="input-field col s12">
                               <%=  text_area_tag "text", nil, class:"materialize-textarea black-border", style:"border-bottom: 1px solid black;" %>

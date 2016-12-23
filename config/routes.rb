@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :complaints
   resources :requisitions
   resources :courses
+  get '/messages/filtered' => 'messages#new_filtered'
+  post '/messages/filtered' => 'messages#create_filtered'
   resources :messages
 
   get '/edit/' => 'admin#edit'

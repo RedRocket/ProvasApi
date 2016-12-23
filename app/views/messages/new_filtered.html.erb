@@ -1,0 +1,45 @@
+<%= render 'layouts/admin_menu' %>
+<div id="main">
+  <div class="wrapper">
+    <section id="content">
+      <div class="container">
+        <div class="section">
+          <div class="row">
+              <div class="col s12 m12 l10 offset-l1">
+                <ul class="collection with-header" style="border: none">
+                  <li class="collection-header blue">
+                  </li>
+                  <%= form_tag "/messages/filtered", method: :post do %>
+                    <li class="collection-item center">
+                      <div class="row">
+                        <div class="col s12 m12 l12">
+                          <div class="input-field col s6">
+                            <%= select_tag "state_id", options_from_collection_for_select(@states, :id, :name), class: 'select2' , include_blank: "Estados" %>
+                          </div>
+                           <div class="input-field col s6">
+                            <%= select_tag "city_id", options_from_collection_for_select(@cities, :id, :name), class: 'select2', include_blank: "Cidades" %>
+                          </div>
+                           <div class="input-field col s6">
+                            <%= select_tag "university_id", options_from_collection_for_select(@universities, :id, :name), class: 'select2', include_blank: "Universidades" %>
+                          </div>
+                          <div class="col s12 m12 l12">
+                            <div class="input-field col s12">
+                              <%=  text_area_tag "text", nil, class:"materialize-textarea black-border", style:"border-bottom: 1px solid black;" %>
+                              <label for="period" class="black-text">Mensagem</label>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="javascript:history.back()" class="btn waves-effect waves-light left blue lighten-2">Voltar</a>
+                        <button class="btn waves-effect waves-light right blue darken-1" type="submit" name="action">Enviar
+                        </button>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
