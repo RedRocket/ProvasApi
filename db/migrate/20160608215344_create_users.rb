@@ -18,6 +18,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :state_id, index: true
       t.integer :city_id, index: true
       t.integer :university_id, index: true
+      t.integer :course_id, index: true
 
       t.timestamps null: false
     end
