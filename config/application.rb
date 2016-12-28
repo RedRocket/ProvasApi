@@ -46,6 +46,16 @@ module Truckvilleapi
       config.fog_directory = 'suaprova'
     end
 
+    ActionMailer::Base.smtp_settings = {
+      :user_name => 'suaprova@gmail.com',
+      :password => 'suaprova16',
+      :domain => 'http://ec2-35-166-118-16.us-west-2.compute.amazonaws.com',
+      :address => 'smtp.sendgrid.net',
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
+    }
+
     config.time_zone = 'Brasilia'
   end
 end

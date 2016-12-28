@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   def create_hashed_password
     self.password = password.crypt("ChaveDoProvas")
   end
+
+  def send_recover_token
+    UserMailer.recover_token(self).deliver_now
+  end
 end

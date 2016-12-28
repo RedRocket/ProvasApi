@@ -80,6 +80,7 @@ class Api::UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
 
     @user.update(recover_password_token: (SecureRandom.random_number * 1000000).floor())
+    @user.send_recover_token()
 
     render json: {}.to_json()
   end
