@@ -47,7 +47,7 @@ module Truckvilleapi
     end
 
     ActionMailer::Base.smtp_settings = {
-      :user_name => 'suaprova@gmail.com',
+      :user_name => 'SuaProva',
       :password => 'suaprova16',
       :domain => 'http://ec2-35-166-118-16.us-west-2.compute.amazonaws.com',
       :address => 'smtp.sendgrid.net',
