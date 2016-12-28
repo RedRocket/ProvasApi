@@ -10,4 +10,10 @@ class User < ActiveRecord::Base
 
   has_many :favorites
   mount_base64_uploader :picture, PhotoUploader
+
+  before_save :create_hashed_password, if: :password_changed?
+
+  def create_hashed_password
+    self.password = password.crypt("ChaveDoProvas")
+  end
 end

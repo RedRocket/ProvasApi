@@ -38,7 +38,7 @@ class Api::UsersController < ApplicationController
   end
 
   def login_default
-    @user = User.find_by email: user_params["email"], password: encrypt(user_params["password"])
+    @user = User.find_by email: user_params["email"], password: user_params["password"]
 
     if @user == nil
       render json: {}.to_json(), status: :unprocessable_entity
@@ -64,7 +64,6 @@ class Api::UsersController < ApplicationController
 
   def create_default
     @user = User.new(user_params)
-    @user.password = encrypt(user_params["password"])
 
     @check_existing_user = User.find_by email: @user.email, password: @user.password
 
@@ -89,7 +88,7 @@ class Api::UsersController < ApplicationController
     @user = User.find_by(recover_password_token: params[:recover_password_token])
 
     if @user != nil
-      @user.update(password: encrypt(params[:password]))
+      @user.update(password: params[:password])
       render json: @user.to_json()
     else
       render json: @user.errors, status: :unprocessable_entity

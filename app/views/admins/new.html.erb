@@ -1,0 +1,51 @@
+<%= render 'layouts/admin_menu' %>
+<div id="main">
+  <div class="wrapper">
+    <section id="content">
+      <div id="breadcrumbs-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col s12 m12 l12" style="position: relative;">
+              <h5 class="breadcrumbs-title">Adicionar Administrador</h5>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section">
+          <div class="row">
+            <div class="col s12 m12 l10 offset-l1">
+              <ul class="collection with-header" style="border: none">
+                <li class="collection-header blue">
+                  <div class="row valign-wrapper">
+
+                  </div>
+                </li>
+                <li class="collection-item center">
+                  <%= form_for(@admin, url: "/admins") do |f| %>
+                    <div class="row">
+                      <div class="input-field col s6">
+                        <%= f.text_field :email, class:"black-border" %>
+                        <label for="email" class="black-text">Email</label>
+                      </div>
+                      <div class="input-field col s6">
+                        <%= f.text_field :password, class:"black-border" %>
+                        <label for="password" class="black-text">Senha</label>
+                      </div>
+                      <div class="input-field col s12">
+                        <a href="javascript:history.back()" class="btn waves-effect waves-light left blue lighten-2">Voltar</a>
+                        <button class="btn waves-effect waves-light right blue darken-1" type="submit" name="action">Salvar
+                        </button>
+                      </div>
+                    </div>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<%= render 'layouts/admin_menu' %>
+<div id="main">
+  <div class="wrapper">
+    <section id="content">
+      <div id="breadcrumbs-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col s12 m12 l12" style="position: relative;">
+              <h5 class="breadcrumbs-title">Administradores</h5>
+              <br>
+
+              <div class="breadcrumbs-buttons">
+                <a class="btn-floating btn-large blue darken-1 waves-effect waves-light" onclick="window.location.assign('/admins/new')">
+                  <i class="force-total-center large-icon material-icons ion-android-add"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section">
+          <div class="row">
+            <div class="col s12 m12 l10 offset-l1">
+              <ul class="collection with-header" style="border: none">
+                <li class="collection-header blue">
+                  <div class="row valign-wrapper">
+
+                  </div>
+                </li>
+                <li class="collection-item center">
+                  <div class="row">
+                    <div class="col s12 m12 l12">
+                      <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th class="center">ID</th>
+                            <th class="center">Email</th>
+                            <th class="center"></th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <% @admins.each do |admin|%>
+                            <tr>
+                              <th class="center"><%= admin.id %></th>
+                              <th class="center"><%= admin.email %></th>
+                              <th class="center">
+                                <%= link_to "Editar", edit_admin_path(id: admin.id), method: :get, class: "orange-text" %>
+                                -
+                                <%= link_to 'Apagar', admin, method: :delete, class: "red-text text-lighten-2", data: { confirm: 'Você tem certeza' } %>
+                              </th>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

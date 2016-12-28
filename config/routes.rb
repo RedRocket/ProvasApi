@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   get '/sessions/destroy' => 'sessions#destroy'
 
 
+  resources :admins
+
+
   namespace :api do
     get "/admins" => 'admin#show'
     get "/users/:id/exams" => 'users#my_exams'
