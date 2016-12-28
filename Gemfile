@@ -29,10 +29,11 @@ gem 'rails_12factor', group: :production
 
 gem 'net-ssh'
 gem 'mini_magick'
+gem "fog"
+gem "fog-aws"
 gem 'carrierwave'
 gem 'carrierwave-base64'
 
-gem "fog"
 gem "mime-types"
 gem 'rack-cors', :require => 'rack/cors'
 

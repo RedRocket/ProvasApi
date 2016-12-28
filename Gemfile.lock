@@ -388,6 +388,7 @@ DEPENDENCIES
   faker
   figaro
   fog
+  fog-aws
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails

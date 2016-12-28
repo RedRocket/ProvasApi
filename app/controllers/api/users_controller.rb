@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+
   def login_sso
     @user = User.new(user_params)
 
