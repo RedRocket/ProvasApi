@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-    @users = User.all
+    @users = User.with_push_token
   end
 
   def new_filtered
@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
         Message.send_pushes(@users, params["text"])
       rescue Exception => e
         if e.to_s.include? "You must include which players, segments, or tags you wish to send this notification to."
-          redirect_to :back, notice: 'Nenhum dos usuários selecionados está com o App instalado'
+          redirect_to :back, notice: 'Nenhum dos usuários está com o App instalado'
         else
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         end
