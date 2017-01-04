@@ -29,7 +29,19 @@ class MessagesController < ApplicationController
       @users = @users.where(city_id: params["city_id"])
     end
 
-    send_pushes(@users)
+    if @users.length > 0
+      begin
+        Message.send_pushes(@users, params["text"])
+      rescue Exception => e
+        if e.to_s.include? "You must include which players, segments, or tags you wish to send this notification to."
+          redirect_to :back, notice: 'Nenhum dos usuários selecionados está com o App instalado'
+        else
+          redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
+        end
+      end
+    else
+      redirect_to :back, notice: 'Nenhum usuário selecionado ou filtrado'
+    end
   end
 
   def create
@@ -44,33 +56,18 @@ class MessagesController < ApplicationController
       end
     end
 
-    send_pushes(@users)
-  end
-
-  private
-    def send_pushes(users)
-      if users.length > 0
-        push_tokens = users.pluck(:push_token)
-
-        @params = {
-          contents: {"en": params["text"] },
-          include_player_ids: push_tokens,
-          app_id: "4ffe93f8-20b0-42ec-8668-f4408ce73545",
-        };
-
-        begin
-          OneSignal::OneSignal.user_auth_key = "N2JkYTFlMjQtOWZkZS00NDljLWJmZmEtOWQ2NTUxNDY2MTBl"
-          OneSignal::OneSignal.api_key = "OTcyNGY1MmItOTAzZC00ZmM4LTg1MTktYmYwY2NjNWJmZGU0"
-          OneSignal::Notification.create(params: @params)
-
-          users.each do |user|
-            Message.create(user_id: user.id, text: params["text"])
-          end
-        rescue Exception => e
+    if @users.length > 0
+      begin
+        Message.send_pushes(@users, params["text"])
+      rescue Exception => e
+        if e.to_s.include? "You must include which players, segments, or tags you wish to send this notification to."
+          redirect_to :back, notice: 'Nenhum dos usuários selecionados está com o App instalado'
+        else
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         end
-      else
-        redirect_to :back, notice: 'Nenhum usuário selecionado ou filtrado'
       end
+    else
+      redirect_to :back, notice: 'Nenhum usuário selecionado ou filtrado'
     end
+  end
 end
