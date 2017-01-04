@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   end
 
   def create_filtered
-    @users = User.all
+    @users = User.with_push_token
 
     if(params["state_id"] != nil)
       @users = @users.where(state_id: params["state_id"])
