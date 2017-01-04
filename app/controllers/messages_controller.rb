@@ -35,12 +35,12 @@ class MessagesController < ApplicationController
       rescue Exception => e
         if e.to_s.include? "You must include which players, segments, or tags you wish to send this notification to."
           redirect_to :back, notice: 'Nenhum dos usuários está com o App instalado'
-        elsif e.to_s.include? "Message"
+        elsif e.to_s.include? "Notifications must have English language content"
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         end
       end
 
-
+      redirect_to messages_path, notice: 'Mensagens enviadas'
     else
       redirect_to :back, notice: 'Nenhum usuário selecionado ou filtrado'
     end
@@ -62,15 +62,14 @@ class MessagesController < ApplicationController
       begin
         Message.send_pushes(@users, params["text"])
       rescue Exception => e
-        puts '>>>>>>'
-        puts e
-        puts '<<<<<<'
         if e.to_s.include? "You must include which players, segments, or tags you wish to send this notification to."
           redirect_to :back, notice: 'Nenhum dos usuários selecionados está com o App instalado'
-        elsif e.to_s.include? "Message"
+        elsif e.to_s.include? "Notifications must have English language content"
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         end
       end
+
+      redirect_to messages_path, notice: 'Mensagens enviadas'
     else
       redirect_to :back, notice: 'Nenhum usuário selecionado ou filtrado'
     end
