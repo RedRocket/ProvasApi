@@ -1,4 +1,6 @@
 class Message < ActiveRecord::Base
+  belongs_to :user
+
   def self.send_pushes(users, text)
     push_tokens = users.pluck(:push_token)
 
