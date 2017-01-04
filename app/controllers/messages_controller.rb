@@ -38,9 +38,9 @@ class MessagesController < ApplicationController
         elsif e.to_s.include? "Notifications must have English language content"
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         end
+      else
+        redirect_to messages_path, notice: 'Mensagens enviadas'
       end
-
-      redirect_to messages_path, notice: 'Mensagens enviadas'
     else
       redirect_to :back, notice: 'Nenhum usuário selecionado ou filtrado'
     end
@@ -67,9 +67,9 @@ class MessagesController < ApplicationController
         elsif e.to_s.include? "Notifications must have English language content"
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         end
+      else
+        redirect_to messages_path, notice: 'Mensagens enviadas'
       end
-
-      redirect_to messages_path, notice: 'Mensagens enviadas'
     else
       redirect_to :back, notice: 'Nenhum usuário selecionado ou filtrado'
     end
