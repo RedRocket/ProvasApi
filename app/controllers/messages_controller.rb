@@ -70,6 +70,7 @@ class MessagesController < ApplicationController
           puts '?>>>>>>'
           puts e
           puts "<<<<<<"
+          redirect_to "/messages", notice: 'Mensagens enviadas'
         end
         end
       else
