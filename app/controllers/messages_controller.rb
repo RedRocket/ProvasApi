@@ -37,6 +37,8 @@ class MessagesController < ApplicationController
           redirect_to :back, notice: 'Nenhum dos usuários está com o App instalado'
         elsif e.to_s.include? "Notifications must have English language content"
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
+        else
+          redirect_to :back, notice: 'Erro ao enviar push notification'
         end
       else
         redirect_to messages_path, notice: 'Mensagens enviadas'
@@ -67,10 +69,7 @@ class MessagesController < ApplicationController
         elsif e.to_s.include? "Notifications must have English language content"
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         else
-          puts '?>>>>>>'
-          puts e
-          puts "<<<<<<"
-          redirect_to "/messages", notice: 'Mensagens enviadas'
+          redirect_to :back, notice: 'Erro ao enviar push notification'
         end
       else
         redirect_to "/messages", notice: 'Mensagens enviadas'

@@ -13,7 +13,7 @@ class Message < ActiveRecord::Base
     OneSignal::Notification.create(params: @params)
 
     users.each do |user|
-      Message.create(user_id: user.id, text: params["text"])
+      Message.create(user_id: user.id, text: text)
     end
   end
 end
