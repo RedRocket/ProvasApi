@@ -39,7 +39,7 @@ class MessagesController < ApplicationController
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         end
       else
-        redirect_to messages_path, notice: 'Mensagens enviadas'
+        redirect_to "/messages", notice: 'Mensagens enviadas'
       end
     else
       redirect_to :back, notice: 'Nenhum usuário selecionado ou filtrado'
@@ -68,7 +68,7 @@ class MessagesController < ApplicationController
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         end
       else
-        redirect_to messages_path, notice: 'Mensagens enviadas'
+        redirect_to "/messages", notice: 'Mensagens enviadas'
       end
     else
       redirect_to :back, notice: 'Nenhum usuário selecionado ou filtrado'
