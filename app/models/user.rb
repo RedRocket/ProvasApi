@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  scope :unblocked, -> { where(blocked: false) }
+
   has_many :exams
   has_many :complaints
   has_many :requisitions

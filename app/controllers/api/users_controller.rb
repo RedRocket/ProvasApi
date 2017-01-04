@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
       @user.remote_picture_url = user_params[:picture]
     end
 
-    @check_existing_user = User.find_by token: @user.token, email: @user.email
+    @check_existing_user = User.unblocked.find_by token: @user.token, email: @user.email
 
     if @check_existing_user == nil
       if @user.save
@@ -38,7 +38,7 @@ class Api::UsersController < ApplicationController
   end
 
   def login_default
-    @user = User.find_by email: user_params["email"], password: user_params["password"]
+    @user = User.unblocked.find_by email: user_params["email"], password: user_params["password"]
 
     if @user == nil
       render json: {}.to_json(), status: :unprocessable_entity
@@ -65,7 +65,7 @@ class Api::UsersController < ApplicationController
   def create_default
     @user = User.new(user_params)
 
-    @check_existing_user = User.find_by email: @user.email, password: @user.password
+    @check_existing_user = User.unblocked.find_by email: @user.email, password: @user.password
 
     if @check_existing_user == nil
       @user.token = "common" + SecureRandom.hex(13)
