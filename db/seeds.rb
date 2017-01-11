@@ -43,7 +43,7 @@ cities = [
 
 Admin.create(
 	email: "provas@example.com",
-	password: "Ch/4uT7Lqgqis",
+	password: "1234",
 )
 
 states.each do |s|
