@@ -35,8 +35,9 @@ class CoursesController < ApplicationController
     end
   end
 
-  def delete
-
+  def destroy
+    @course.destroy
+    redirect_to courses_path, notice: "Curso apagado"
   end
 
   private

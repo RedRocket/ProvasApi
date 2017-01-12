@@ -35,8 +35,9 @@ class UniversitiesController < ApplicationController
     end
   end
 
-  def delete
-
+  def destroy
+    @university.destroy
+    redirect_to universities_path, notice: "Universidade apagada"
   end
 
   private

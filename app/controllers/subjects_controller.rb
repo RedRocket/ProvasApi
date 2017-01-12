@@ -35,8 +35,9 @@ class SubjectsController < ApplicationController
     end
   end
 
-  def delete
-
+  def destroy
+    @subject.destroy
+    redirect_to subjects_path, notice: "Disciplina apagada"
   end
 
   private

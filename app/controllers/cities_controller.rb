@@ -35,8 +35,9 @@ class CitiesController < ApplicationController
     end
   end
 
-  def delete
-
+  def destroy
+    @city.destroy
+    redirect_to cities_path, notice: "Cidade apagada"
   end
 
   private

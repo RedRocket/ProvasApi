@@ -46,8 +46,8 @@
                             <tr>
                               <th class="center"><%= uni.id %></th>
                               <th class="center"><%= uni.name %></th>
-                              <th class="center"><%= uni.city.name %></th>
-                              <th class="center"><%= link_to "Editar", edit_university_path(id: uni.id), method: :get %></th>
+                              <th class="center"><%= uni.city.try(:name) %></th>
+                              <th class="center"><%= link_to "Editar", edit_university_path(id: uni.id), method: :get %> - <%= link_to 'Apagar', uni, method: :delete, data: { confirm: 'Você tem certeza' }, class: "red-text text-lighten-2" %></th>
                             </tr>
                           <% end %>
                         </tbody>

@@ -38,7 +38,7 @@
                             <tr>
                               <th class="center"><%= message.id %></th>
                               <th class="center"><%= message.text %></th>
-                              <th class="center"><%= message.user.name %></th>
+                              <th class="center"><%= message.user.try(:name) %></th>
                             </tr>
                           <% end %>
                         </tbody>

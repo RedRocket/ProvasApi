@@ -47,9 +47,9 @@
                             <tr>
                               <th class="center"><%= subject.id %></th>
                               <th class="center"><%= subject.name %></th>
-                              <th class="center"><%= subject.course.name %></th>
-                              <th class="center"><%= subject.course.university.name %></th>
-                              <th class="center"><%= link_to "Editar", edit_subject_path(id: subject.id), method: :get %></th>
+                              <th class="center"><%= subject.course.try(:name) %></th>
+                              <th class="center"><%= subject.course.try(:university).try(:name) %></th>
+                              <th class="center"><%= link_to "Editar", edit_subject_path(id: subject.id), method: :get %> - <%= link_to 'Apagar', subject, method: :delete, data: { confirm: 'Você tem certeza' }, class: "red-text text-lighten-2" %></th>
                             </tr>
                           <% end %>
                         </tbody>

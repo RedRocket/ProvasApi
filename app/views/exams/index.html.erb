@@ -48,8 +48,8 @@
                           <% @exams.each do |exam|%>
                             <tr>
                               <th class="center"><%= exam.id %></th>
-                              <th class="center"><%= link_to exam.name, exam_path(id: exam.id), method: :get %></th>
-                              <th class="center"><%= exam.subject.name %></th>
+                              <th class="center"><%= exam.name %></th>
+                              <th class="center"><%= exam.subject.try(:name) %></th>
                               <th class="center"><%= exam.period %></th>
                               <th class="center"><%= exam.views %></th>
                               <th class="center"><%= exam.visible %></th>

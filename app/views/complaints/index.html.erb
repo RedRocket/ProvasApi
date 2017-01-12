@@ -42,10 +42,10 @@
                           <% @complaints.each do |complaint|%>
                             <tr>
                               <th class="center"><%= complaint.id %></th>
-                              <th class="center"><%= complaint.exam.id %></th>
-                              <th class="center"><%= complaint.exam.user.name %></th>
-                              <th class="center"><%= complaint.user.name %></th>
-                              <th class="center"><%= complaint.exam.name %></th>
+                              <th class="center"><%= complaint.exam.try(:id) %></th>
+                              <th class="center"><%= complaint.exam.try(:user).try(:name) %></th>
+                              <th class="center"><%= complaint.user.try(:name) %></th>
+                              <th class="center"><%= complaint.exam.try(:name) %></th>
                               <th class="center"><%= complaint.text %></th>
                               <th class="center">
                                 <%= link_to "Apagar", "/complaints/#{complaint.id}", method: :delete %></th>

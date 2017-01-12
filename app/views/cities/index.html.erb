@@ -47,7 +47,9 @@
                               <th class="center"><%= city.id %></th>
                               <th class="center"><%= city.name %></th>
                               <th class="center"><%= city.state.name %></th>
-                              <th class="center"><%= link_to "Editar", edit_city_path(id: city.id), method: :get %></th>
+                              <th class="center"><%= link_to "Editar", edit_city_path(id: city.id), method: :get %>
+                                - <%= link_to 'Apagar', city, method: :delete, data: { confirm: 'Você tem certeza' }, class: "red-text text-lighten-2" %></th>
+                              </th>
                             </tr>
                           <% end %>
                         </tbody>
