@@ -6,7 +6,6 @@ class CitiesController < ApplicationController
 
   def new
     @city = City.new
-    @states = State.all
   end
 
   def create
@@ -22,7 +21,6 @@ class CitiesController < ApplicationController
   end
 
   def edit
-    @states = State.all
   end
 
   def update

@@ -30,7 +30,7 @@
                         <label for="name" class="black-text">Nome</label>
                       </div>
                       <div class="input-field col s6">
-                        <%= f.select "state_id", options_from_collection_for_select(@states, :id, :name) %>
+                        <%= f.select "state_id", options_from_collection_for_select(states, :id, :name) %>
                         <label for="state_id" class="black-text">Estado</label>
                       </div>
                       <div class="input-field col s12">
