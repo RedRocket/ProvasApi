@@ -1,4 +1,6 @@
 class Exam < ActiveRecord::Base
+  before_save :convert_name, if: :name_changed?
+
   belongs_to :subject
   belongs_to :user
   has_many :complaints
@@ -7,6 +9,10 @@ class Exam < ActiveRecord::Base
 
   has_many :favorites
   scope :visible, -> { where(visible: true) }
+
+  def convert_name
+    self.name = I18n.transliterate(self.name).upcase
+  end
 
   def check_for_grey_scale
     checker = true
