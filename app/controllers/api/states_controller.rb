@@ -1,6 +1,6 @@
 class Api::StatesController < ApplicationController
   def index
-    @states = State.all
+    @states = State.order(:name)
     render json: @states.to_json(), status: :ok
   end
 
