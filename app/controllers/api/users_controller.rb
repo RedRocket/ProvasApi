@@ -38,13 +38,17 @@ class Api::UsersController < ApplicationController
   end
 
   def login_default
-    @user = User.unblocked.find_by email: user_params["email"], password: user_params["password"]
+    @user = User.find_by email: user_params["email"], password: user_params["password"]
 
     if @user == nil
-      render json: {}.to_json(), status: :unprocessable_entity
+      render json: { errors: "Email ou Senha inválidos" }, status: 422
     else
-      @user.update(push_token: user_params["push_token"])
-      render json: @user.to_json(include: :scores)
+      if @user.blocked
+        render json: { errors: "Conta bloqueada, entre em contato para solucionar" }, status: 422
+      else
+        @user.update(push_token: user_params["push_token"])
+        render json: @user.to_json(include: :scores)
+      end
     end
   end
 
