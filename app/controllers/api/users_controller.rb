@@ -102,9 +102,13 @@ class Api::UsersController < ApplicationController
 
   def logout
     @user = User.find_by(token: params[:token])
-    @user.update(push_token: nil)
 
-    render json: @user.to_json()
+    if @user
+      @user.update(push_token: nil)
+      render json: {}.to_json()
+    else
+      render json: {}.to_json()
+    end
   end
 
   private
