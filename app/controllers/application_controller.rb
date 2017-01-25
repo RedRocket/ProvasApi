@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   def encrypt(string)
-  	return string.crypt("ChaveDoProvas")
+    if string
+  	  return string.crypt("ChaveDoProvas")
+    end
   end
 
   def current_admin
