@@ -41,7 +41,7 @@ class Api::UsersController < ApplicationController
     @user = User.find_by email: user_params["email"], password: encrypt(user_params["password"])
 
     if @user == nil
-      render json: { errors: "Email ou Senha inválidos" }, status: 422
+      render json: { errors: "Email ou Senha invalidos" }, status: 422
     else
       if @user.blocked
         render json: { errors: "Conta bloqueada, entre em contato para solucionar" }, status: 422
