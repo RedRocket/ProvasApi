@@ -55,7 +55,7 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find_by token: user_params["token"]
 
-    if @user != null
+    if @user != nil
       if @user.update(user_params)
         render json: @user.to_json(), status: :created
       else
