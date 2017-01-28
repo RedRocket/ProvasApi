@@ -5,7 +5,7 @@ class Api::StatesController < ApplicationController
   end
 
   def cities_in_state
-    cities = State.find(params[:id]).cities.order(:views, name: :asc)
+    cities = State.find(params[:id]).cities.order(name: :asc)
 
     render json: cities.to_json(), status: :ok
   end
