@@ -5,15 +5,9 @@ class Api::CitiesController < ApplicationController
   end
 
   def universities_in_city
-    universities = City.find(params[:id]).universities.order(:views, name: :desc)
+    universities = City.find(params[:id]).universities.order(name: :asc)
 
-    highest_view = universities.first
-
-    universities_ord = universities.order(name: :desc) - [highest_view]
-
-    universities_ord.unshift(highest_view)
-
-    render json: universities_ord.reverse.to_json(), status: :ok
+    render json: universities.to_json(), status: :ok
   end
 
   def add_view

@@ -5,14 +5,8 @@ class Api::StatesController < ApplicationController
   end
 
   def cities_in_state
-    cities = State.find(params[:id]).cities.order(:views, name: :desc)
+    cities = State.find(params[:id]).cities.order(:views, name: :asc)
 
-    highest_view = cities.first
-
-    cities_ord = cities.order(name: :desc) - [highest_view]
-
-    cities_ord.unshift(highest_view)
-
-    render json: cities_ord.reverse.to_json(), status: :ok
+    render json: cities.to_json(), status: :ok
   end
 end
