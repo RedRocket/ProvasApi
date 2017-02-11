@@ -19,6 +19,6 @@
  *= require perfect-scrollbar
  *= require dropify
  *= require sweetalert
- *= require jquery.dataTables.min
+ *= require jquery.dataTables
  *= require select2
  */

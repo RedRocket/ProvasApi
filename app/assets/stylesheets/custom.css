@@ -37,9 +37,9 @@ fieldset{
 
 
 .small-flat{
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-    font-size: small !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  font-size: small !important;
 }
 
 .sweet-alert{
@@ -87,14 +87,14 @@ table.dataTable{
 }
 
 .buttonAsIcon{
-    position: absolute !important;
-    top: -20px;
-    right: -20px;
-    cursor: auto !important;
+  position: absolute !important;
+  top: -20px;
+  right: -20px;
+  cursor: auto !important;
 }
 
 .buttonAsIcon:hover{
-    box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .visible-overflow{
