@@ -1,7 +1,7 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
   def index
-    @cities = City.all
+    @cities = City.includes(:state)
   end
 
   def new

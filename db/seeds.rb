@@ -56,3 +56,5 @@ cities.each_with_index do |state, index|
     City.create(name: city, state_id: index + 1)
   end
 end
+
+

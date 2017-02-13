@@ -1,7 +1,7 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
   def index
-    @exams = Exam.all
+    @exams = Exam.includes(:subject)
   end
 
   def show
@@ -48,7 +48,7 @@ class ExamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exam
-      @exam = Exam.find(params[:id])
+      @exam = Exam.find(params[:id]).includes(:subject)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

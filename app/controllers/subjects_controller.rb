@@ -1,12 +1,12 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
   def index
-    @subjects = Subject.all
+    @subjects = Subject.includes(:course)
   end
 
   def new
     @subject = Subject.new
-    @courses = Course.all
+    @courses = Course.includes(:university)
   end
 
   def create
@@ -22,7 +22,7 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    @courses = Course.all
+    @courses = Course.includes(:university)
   end
 
   def update

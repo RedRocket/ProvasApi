@@ -1,7 +1,7 @@
 class RequisitionsController < ApplicationController
   before_action :set_requisition, only: [:show, :edit, :update, :destroy]
   def index
-    @requisitions = Requisition.all
+    @requisitions = Requisition.includes(:user)
   end
 
   def delete

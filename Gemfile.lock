@@ -55,6 +55,9 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+    bullet (5.5.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
     capistrano (3.7.1)
       airbrussh (>= 1.0.0)
@@ -360,6 +363,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.10.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -372,6 +376,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
+  bullet
   byebug
   capistrano
   capistrano-bundler

@@ -1,7 +1,7 @@
 class ComplaintsController < ApplicationController
   before_action :set_complaint, only: [:show, :edit, :update, :destroy]
   def index
-    @complaints = Complaint.all
+    @complaints = Complaint.includes(:user, :exam)
   end
 
   def delete

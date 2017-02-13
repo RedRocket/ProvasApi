@@ -1,7 +1,7 @@
 class UniversitiesController < ApplicationController
   before_action :set_university, only: [:show, :edit, :update, :destroy]
   def index
-    @universities = University.all
+    @universities = University.includes(:city)
   end
 
   def new

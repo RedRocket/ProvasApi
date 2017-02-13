@@ -45,7 +45,7 @@ gem 'faker'
 gem 'delayed_job_active_record'
 gem 'ropencv'
 gem 'rollbar', '~>2.11.3'
-gem "daemons"
+gem 'daemons'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -62,6 +62,7 @@ gem 'figaro'
 gem 'puma'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'bullet'
   gem 'web-console', '~> 2.0'
   gem 'capistrano'
   gem 'capistrano3-delayed-job', '~> 1.0'
