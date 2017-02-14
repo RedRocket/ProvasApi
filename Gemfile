@@ -46,6 +46,7 @@ gem 'delayed_job_active_record'
 gem 'ropencv'
 gem 'rollbar', '~>2.11.3'
 gem 'daemons'
+gem 'seed_dump'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
