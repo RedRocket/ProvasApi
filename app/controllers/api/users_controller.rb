@@ -66,17 +66,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def update_image
-    @user = User.find_by token: user_params["token"]
-    @user.picture = params[:picture]
-
-    if @user.save
-      render json: @user.to_json(), status: :created
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
-  end
-
   def create_default
     @user = User.new(user_params)
 
