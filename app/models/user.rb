@@ -16,10 +16,10 @@ class User < ActiveRecord::Base
   mount_base64_uploader :picture, PhotoUploader
 
   before_save :create_hashed_password, if: :password_changed?
-  before_save :delete_old_profile, if: :picture_changed?
+  before_save :delete_old_picture, if: :picture_changed?
 
 
-  def delete_old_file
+  def delete_old_picture
     self.remove_picture!
   end
 
