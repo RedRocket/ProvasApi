@@ -16,12 +16,6 @@ class User < ActiveRecord::Base
   mount_base64_uploader :picture, PhotoUploader
 
   before_save :create_hashed_password, if: :password_changed?
-  before_validation :delete_old_picture, if: :picture_changed?
-
-
-  def delete_old_picture
-    self.remove_picture!
-  end
 
   def create_hashed_password
     self.password = password.crypt("ChaveDoProvas")
