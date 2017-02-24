@@ -1,5 +1,5 @@
 class ChangeStringFormatToText < ActiveRecord::Migration
   def change
-    change_column :user, :picture, :text
+    change_column :users, :picture, :text
   end
 end
