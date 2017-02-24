@@ -37,6 +37,8 @@ Rails.application.routes.draw do
     post "/users/set_recover_token" => 'users#set_recover_token'
     post "/users/set_new_password" => 'users#set_new_password'
     post "/users/:token/update" => 'users#update'
+    post "/users/:token/update_image" => 'users#update_image'
+
 
 
     post "scores" => 'scores#create'

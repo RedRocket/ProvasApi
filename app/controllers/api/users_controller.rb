@@ -66,6 +66,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update_image
+    @user = User.find_by token: user_params["token"]
+    user.picture = user_params[:picture]
+    user.save
+  end
+
   def create_default
     @user = User.new(user_params)
 
