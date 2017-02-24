@@ -68,6 +68,7 @@ class Api::UsersController < ApplicationController
 
   def update_image
     @user = User.find_by token: user_params["token"]
+    @user.remove_picture!
     @user.picture = params[:picture]
 
     if @user.save
