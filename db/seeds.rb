@@ -37,10 +37,6 @@ states = [
   ['TO','Tocantins']
 ]
 
-cities = [
-  ['Fortaleza'],
-]
-
 Admin.create(
 	email: "provas@example.com",
 	password: "1234",
@@ -48,13 +44,6 @@ Admin.create(
 
 states.each do |s|
   State.create(UF: s[0], name: s[1])
-end
-
-
-cities.each_with_index do |state, index|
-  state.each do |city|
-    City.create(name: city, state_id: index + 1)
-  end
 end
 
 

@@ -56,14 +56,15 @@ gem 'seed_dump'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'bullet'
   gem 'byebug'
 end
 
 gem 'figaro'
 gem 'puma'
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'bullet'
   gem 'web-console', '~> 2.0'
   gem 'capistrano'
   gem 'capistrano3-delayed-job', '~> 1.0'
