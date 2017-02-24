@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   belongs_to :state
 
   has_many :favorites
+  mount_base64_uploader :picture, PhotoUploader
 
   before_save :create_hashed_password, if: :password_changed?
 
