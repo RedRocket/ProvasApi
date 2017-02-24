@@ -69,9 +69,8 @@ class Api::UsersController < ApplicationController
   def update_image
     @user = User.find_by token: user_params["token"]
     @user.remove_picture!
-    @user.picture = params[:picture]
 
-    if @user.save
+    if @user.update(picture: params[:picture])
       render json: @user.to_json(), status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
