@@ -38,12 +38,15 @@ module Truckvilleapi
     end
 
     CarrierWave.configure do |config|
+      config.fog_provider = 'fog/aws'                        # required
       config.fog_credentials = {
-        provider:                         'Google',
-        google_storage_access_key_id:     'GOOGETMIZFQPEUQ5WZAA',
-        google_storage_secret_access_key: 'dgNKWBSIhKgvUf4YtS+dGQRwPeH749zNsqBs2DZ3'
+        provider:              'AWS',                        # required
+        aws_access_key_id:     ENV["S3_ACCESS_KEY"],                        # required
+        aws_secret_access_key: ENV["S3_SECRET_ACCESS"],                        # required
+        region:                'eu-west-2',                  # optional, defaults to 'us-east-1'
       }
-      config.fog_directory = 'suaprova'
+      config.fog_directory  = 'fotos'                          # required
+      config.fog_public     = false
     end
 
     ActionMailer::Base.smtp_settings = {
