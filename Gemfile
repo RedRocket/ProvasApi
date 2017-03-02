@@ -31,7 +31,7 @@ gem 'net-ssh'
 gem 'mini_magick'
 gem "fog"
 gem "fog-aws"
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
 
 gem "mime-types"
