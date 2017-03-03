@@ -71,6 +71,7 @@ Rails.application.routes.draw do
     get 'exams/:id/list' => "exams#list"
     get 'exams/:id/thumbs' => "exams#get_thumb"
     get 'exams/:id/images' => "exams#get_images"
+    post 'exams/:id/add_view' => "exams#add_view"
 
     delete 'exams/:id/images' => "exams#remove_images"
     delete 'exams/:id' => "exams#delete"
