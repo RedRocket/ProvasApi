@@ -33,7 +33,6 @@ gem "fog"
 gem "fog-aws"
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
-gem 'dotenv-rails', groups: [:development, :test]
 
 gem "mime-types"
 gem 'rack-cors', :require => 'rack/cors'
