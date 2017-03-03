@@ -101,6 +101,10 @@ GEM
     delayed_job_active_record (4.1.1)
       activerecord (>= 3.0, < 5.1)
       delayed_job (>= 3.0, < 5)
+    dotenv (2.2.0)
+    dotenv-rails (2.2.0)
+      dotenv (= 2.2.0)
+      railties (>= 3.2, < 5.1)
     erubis (2.7.0)
     excon (0.54.0)
     execjs (2.7.0)
@@ -390,6 +394,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   daemons
   delayed_job_active_record
+  dotenv-rails
   faker
   figaro
   fog
