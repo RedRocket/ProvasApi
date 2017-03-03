@@ -43,10 +43,9 @@ module Truckvilleapi
         provider:              'AWS',                        # required
         aws_access_key_id:     ENV["S3_ACCESS_KEY"],                        # required
         aws_secret_access_key: ENV["S3_SECRET_ACCESS"],                        # required
-        region:                'eu-west-2',                  # optional, defaults to 'us-east-1'
+        region:                'us-west-2',                  # optional, defaults to 'us-east-1'
       }
-      config.fog_directory  = 'photos-suaprova'                          # required
-      config.fog_public     = false
+      config.fog_directory  = 'elasticbeanstalk-us-west-2-941352463971'
     end
 
     ActionMailer::Base.smtp_settings = {
