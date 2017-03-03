@@ -45,7 +45,7 @@ module Truckvilleapi
         aws_secret_access_key: ENV["S3_SECRET_ACCESS"],                        # required
         region:                'eu-west-2',                  # optional, defaults to 'us-east-1'
       }
-      config.fog_directory  = 'fotos'                          # required
+      config.fog_directory  = 'photos-suaprova'                          # required
       config.fog_public     = false
     end
 
