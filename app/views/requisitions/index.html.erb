@@ -42,7 +42,7 @@
                               <th class="center"><%= requisition.text %></th>
                               <th class="center">
                                 <% if requisition.user != nil %>
-                                  <%= requisition.user.tr(:name) %>
+                                  <%= requisition.user.try(:name) %>
                                 <% end %>
                               </th>
                               <th class="center">
