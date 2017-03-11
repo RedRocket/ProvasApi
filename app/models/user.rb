@@ -24,4 +24,23 @@ class User < ActiveRecord::Base
   def send_recover_token
     UserMailer.recover_token(self).deliver_now
   end
+
+  def total_views
+    total_views = 0
+    self.exams.each do |exam|
+      total_views = total_views + exam.views
+    end
+
+    return total_views
+  end
+
+  def averege_scores
+    averege_scores = 0
+    exams = self.exams.where("feedback_avarage > 0")
+    exams.each do |exam|
+      averege_scores = averege_scores + exam.feedback_avarage
+    end
+
+    return (averege_scores/exams.count)
+  end
 end

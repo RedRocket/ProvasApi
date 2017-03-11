@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     get "/admins" => 'admin#show'
     get "/users/:id/exams" => 'users#my_exams'
     get "/users/:id/favorites" => 'users#my_favorite_exams'
+
+    resources :users, only: [:show]
     post "/users/sso" => 'users#login_sso'
     post "/users/login" => 'users#login_default'
     post "/users/create" => 'users#create_default'

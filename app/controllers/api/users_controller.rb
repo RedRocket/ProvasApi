@@ -1,6 +1,10 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def show
+    @user = User.find(params[:id])
+    render json: @check_existing_user.to_json(methods: [:total_views, :average_scores])
+  end
 
   def login_sso
     @user = User.new(user_params)
