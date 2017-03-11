@@ -4,7 +4,7 @@ class RequisitionsController < ApplicationController
     @requisitions = Requisition.includes(:user)
   end
 
-  def delete
+  def destroy
     @requisition.destroy
     redirect_to :back
   end
