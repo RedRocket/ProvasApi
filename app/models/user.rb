@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
       averege_scores = averege_scores + exam.feedback_avarage
     end
 
-    return (averege_scores/exams.count)
+    if exam.count > 0
+      return averege_scores/exams.count
+    else
+      return 0
+    end
   end
 end
