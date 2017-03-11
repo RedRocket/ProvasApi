@@ -4,7 +4,7 @@ class ComplaintsController < ApplicationController
     @complaints = Complaint.includes(:user, :exam)
   end
 
-  def delete
+  def destroy
     @complaint.destroy
     redirect_to :back
   end
