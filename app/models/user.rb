@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     UserMailer.recover_token(self).deliver_now
   end
 
-  def total_views
+  def exams_info
     averege_scores = 0
     exams_accounted_scores = 0
     total_views = 0
@@ -43,19 +43,5 @@ class User < ActiveRecord::Base
     end
 
     return {averege_scores: averege_scores, total_views: total_views}
-  end
-
-  def averege_scores
-    averege_scores = 0
-    exams = self.exams.where("feedback_avarage > 0")
-    exams.each do |exam|
-      averege_scores = averege_scores + exam.feedback_avarage
-    end
-
-    if exam.count > 0
-      return averege_scores/exams.count
-    else
-      return 0
-    end
   end
 end

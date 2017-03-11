@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render json: @user.to_json(methods: [:total_views, :average_scores])
+    render json: @user.to_json(methods: [:exams_info])
   end
 
   def login_sso
