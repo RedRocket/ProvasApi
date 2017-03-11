@@ -32,7 +32,6 @@ Rails.application.routes.draw do
     get "/users/:id/exams" => 'users#my_exams'
     get "/users/:id/favorites" => 'users#my_favorite_exams'
 
-    resources :users, only: [:show]
     post "/users/sso" => 'users#login_sso'
     post "/users/login" => 'users#login_default'
     post "/users/create" => 'users#create_default'
@@ -40,6 +39,7 @@ Rails.application.routes.draw do
     post "/users/set_new_password" => 'users#set_new_password'
     post "/users/:token/update" => 'users#update'
     post "/users/:token/update_image" => 'users#update_image'
+    get "/users/:token/show" => 'users#show'
 
 
 
