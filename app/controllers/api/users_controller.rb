@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(token: params[:token])
     render json: @user.to_json(methods: [:exams_info])
   end
 
