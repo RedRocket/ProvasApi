@@ -26,12 +26,23 @@ class User < ActiveRecord::Base
   end
 
   def total_views
+    averege_scores = 0
+    exams_accounted_scores = 0
     total_views = 0
     self.exams.each do |exam|
       total_views = total_views + exam.views
+
+      if exam.feedback_avarage >= 0
+        averege_scores = averege_scores + exam.feedback_avarage
+        exams_accounted_scores = exams_accounted_scores + 1
+      end
     end
 
-    return total_views
+    if exams_accounted_scores > 0
+      averege_scores = averege_scores / exams_accounted_scores
+    end
+
+    return {averege_scores: averege_scores, total_views: total_views}
   end
 
   def averege_scores
