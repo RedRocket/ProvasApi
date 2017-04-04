@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default :from => 'contato@suaprova.com'
+  default :from => 'SuaProva <contato@suaprova.com>'
 
   def recover_token(user)
     @user = user
