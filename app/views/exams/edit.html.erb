@@ -48,6 +48,23 @@
                   <% end %>
                 </li>
               </ul>
+
+              <ul class="collection with-header" style="border: none">
+                <li class="collection-header blue">
+                  <div class="row valign-wrapper">
+
+                  </div>
+                </li>
+                <li class="collection-item center">
+                  <div class="row">
+                    <% @exam.exam_images.each do |image| %>
+                      <div class="col s12 l6">
+                        <img src="<%= image.image_uncompressed.url %>">
+                      </div>
+                    <% end %>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
