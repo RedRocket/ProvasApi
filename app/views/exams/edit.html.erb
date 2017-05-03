@@ -59,7 +59,7 @@
                   <div class="row">
                     <% @exam.exam_images.each do |image| %>
                       <div class="col s12 l6">
-                        <img src="<%= image.image_uncompressed.url %>">
+                        <img src="<%= image.image_uncompressed.url %>" style="max-width: 100%; width: 100%">
                       </div>
                     <% end %>
                   </div>
