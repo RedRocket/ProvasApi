@@ -74,8 +74,11 @@ class Api::UsersController < ApplicationController
     @user = User.find_by token: user_params["token"]
 
     if @user != nil
-      @user.remove_picture!
-      @user.save
+      if @user.picture.url != nil
+        @user.remove_picture!
+        @user.save
+      end
+
       @user.update(picture: params[:picture])
 
       render json: @user.to_json(), status: :created
