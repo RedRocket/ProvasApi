@@ -70,6 +70,20 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def upload_picture
+    @user = User.find_by token: user_params["token"]
+
+    if @user != nil
+      @user.remove_picture!
+      @user.save
+      @user.update(picture: params[:picture])
+
+      render json: @user.to_json(), status: :created
+    else
+      render json: {}, status: :ok
+    end
+  end
+
   def create_default
     @user = User.new(user_params)
 

@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     post "/users/:token/update" => 'users#update'
     post "/users/:token/update_image" => 'users#update_image'
     get "/users/:token/show" => 'users#show'
+    patch "/users/:token/upload_picture" => 'users#upload_picture'
 
 
 
