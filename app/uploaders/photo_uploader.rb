@@ -19,6 +19,9 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [800, 800]
   end
 
+  def filename
+    "#{secure_token}.#{file.extension}" if original_filename.present?
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -54,4 +57,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
+
+  protected
+    def secure_token
+      var = :"@#{mounted_as}_secure_token"
+      model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+    end
 end
