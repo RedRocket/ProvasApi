@@ -40,7 +40,7 @@ class Api::ExamsController < ApplicationController
   end
 
   def list
-    @exams = Exam.where(subject_id: params[:id]).visible.order(:period, :created_at)
+    @exams = Exam.where(subject_id: params[:id]).visible.order(period: :desc, :created_at)
 
     render json: @exams.to_json(include: :user), status: :ok
   end
