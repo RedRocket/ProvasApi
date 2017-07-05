@@ -5,7 +5,7 @@ class Api::UniversitiesController < ApplicationController
   end
 
   def courses_in_university
-    @courses = University.find(params[:id]).courses
+    @courses = University.find(params[:id]).courses.order(name: :asc)
     render json: @courses.to_json(), status: :ok
   end
 
