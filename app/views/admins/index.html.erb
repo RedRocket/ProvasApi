@@ -48,7 +48,7 @@
                               <th class="center">
                                 <%= link_to "Editar", edit_admin_path(id: admin.id), method: :get, class: "orange-text" %>
                                 -
-                                <%= link_to 'Apagar', admin, method: :delete, class: "red-text text-lighten-2", data: { confirm: 'Você tem certeza' } %>
+                                <%= link_to "Apagar", "/admins/#{admin.id}", method: :delete, data: { confirm: 'Você tem certeza' } %>
                               </th>
                             </tr>
                           <% end %>
