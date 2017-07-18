@@ -42,7 +42,7 @@
                           <% @complaints.each do |complaint|%>
                             <tr>
                               <th class="center"><%= complaint.id %></th>
-                              <th class="center"><%= complaint.exam.try(:id) %> - <% complaint.exam.subject.name %>, <%= complaint.exam.subject.course.name %> <%= complaint.exam.subject.course.university.name %></th>
+                              <th class="center"><%= complaint.exam.try(:id) %> - <%= complaint.exam.subject.name %>, <%= complaint.exam.subject.course.name %> <%= complaint.exam.subject.course.university.name %></th>
                               <th class="center"><%= complaint.exam.try(:user).try(:name) %></th>
                               <th class="center"><%= complaint.user.try(:name) %></th>
                               <th class="center"><%= complaint.exam.try(:name) %></th>
