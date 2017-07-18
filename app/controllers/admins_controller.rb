@@ -40,8 +40,10 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
 
     if @admin == current_admin
+      @admin.destroy
       redirect_to root_path, notice: "Administrador apagado"
     else
+      @admin.destroy
       redirect_to admins_path, notice: "Administrador apagado"
     end
   end
