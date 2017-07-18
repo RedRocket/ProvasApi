@@ -37,28 +37,6 @@ module Truckvilleapi
       end
     end
 
-    CarrierWave.configure do |config|
-      config.fog_provider = 'fog/aws'                        # required
-      config.fog_credentials = {
-        provider:              'AWS',                        # required
-        aws_access_key_id:     ENV["S3_ACCESS_KEY"],                        # required
-        aws_secret_access_key: ENV["S3_SECRET_ACCESS"],                        # required
-        region:                'us-west-2',                  # optional, defaults to 'us-east-1'
-        endpoint: 'http://s3-us-west-2.amazonaws.com',
-      }
-      config.fog_directory  = 'elasticbeanstalk-us-west-2-941352463971'
-    end
-
-    ActionMailer::Base.smtp_settings = {
-      :user_name => ENV["SENDGRID_USERNAME"],
-      :password => ENV["SENDGRID_PASSWORD"],
-      :domain => 'http://ec2-35-166-118-16.us-west-2.compute.amazonaws.com',
-      :address => 'smtp.sendgrid.net',
-      :port => 587,
-      :authentication => :plain,
-      :enable_starttls_auto => true
-    }
-
     config.time_zone = 'Brasilia'
   end
 end

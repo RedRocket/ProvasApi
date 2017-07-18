@@ -31,6 +31,7 @@
                             <th class="center">ID</th>
                             <th class="center">Texto</th>
                             <th class="center">Requisitante</th>
+                            <th class="center">Email</th>
                             <th class="center"></th>
                           </tr>
                         </thead>
@@ -43,6 +44,11 @@
                               <th class="center">
                                 <% if requisition.user != nil %>
                                   <%= requisition.user.try(:name) %>
+                                <% end %>
+                              </th>
+                              <th class="center">
+                                <% if requisition.user != nil %>
+                                  <%= requisition.user.try(:email) %>
                                 <% end %>
                               </th>
                               <th class="center">
