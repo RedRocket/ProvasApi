@@ -17,15 +17,15 @@ class MessagesController < ApplicationController
   def create_filtered
     @users = User.with_push_token
 
-    if(params["state_id"] != nil)
+    if(!params["state_id"].blank?)
       @users = @users.where(state_id: params["state_id"])
     end
 
-    if(params["university_id"] != nil)
+    if(!params["university_id"].blank?)
       @users = @users.where(university_id: params["university_id"])
     end
 
-    if(params["city_id"] != nil)
+    if(!params["city_id"].blank?)
       @users = @users.where(city_id: params["city_id"])
     end
 
