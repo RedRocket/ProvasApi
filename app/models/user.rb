@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   scope :unblocked, -> { where(blocked: false) }
-  scope :with_push_token, -> { where.not("push_token <> ''") }
+  scope :with_push_token, -> { where("push_token <> ''") }
 
   has_many :exams
   has_many :complaints
