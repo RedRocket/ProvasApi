@@ -38,6 +38,10 @@ class MessagesController < ApplicationController
         elsif e.to_s.include? "Notifications must have English language content"
           redirect_to :back, notice: 'Não esqueça de preencher a mensagem'
         else
+          puts '>>>>'
+          puts e.to_s
+          puts "<<<<"
+
           redirect_to :back, notice: 'Erro ao enviar push notification'
         end
       else
