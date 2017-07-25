@@ -9,18 +9,18 @@
                 <ul class="collection with-header" style="border: none">
                   <li class="collection-header blue">
                   </li>
-                  <%= form_tag "/messages/filtered", method: :post do %>
+                  <%= form_tag "/messages/filtered", id: "push-filtered-form", method: :post do %>
                     <li class="collection-item center">
                       <div class="row">
                         <div class="col s12 m12 l12">
                           <div class="input-field col s6">
-                            <%= select_tag "state_id", options_from_collection_for_select(@states, :id, :name), class: 'select2' , include_blank: "Estados" %>
+                            <%= select_tag "state_id", options_from_collection_for_select(@states, :id, :name), class: 'select2' , include_blank: "Estados", id: "select_state" %>
                           </div>
                            <div class="input-field col s6">
-                            <%= select_tag "city_id", options_from_collection_for_select(@cities, :id, :name), class: 'select2', include_blank: "Cidades" %>
+                            <%= select_tag "city_id", options_from_collection_for_select(@cities, :id, :name), class: 'select2', include_blank: "Cidades", id: "select_city" %>
                           </div>
                            <div class="input-field col s6">
-                            <%= select_tag "university_id", options_from_collection_for_select(@universities, :id, :name), class: 'select2', include_blank: "Instituições" %>
+                            <%= select_tag "university_id", options_from_collection_for_select(@universities, :id, :name), class: 'select2', include_blank: "Instituições", id: "select_universities" %>
                           </div>
                           <div class="col s12 m12 l12">
                             <div class="input-field col s12">

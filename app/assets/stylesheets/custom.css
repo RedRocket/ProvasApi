@@ -15,6 +15,16 @@
 	-webkit-transform: translate(-50%, 0);
 }
 
+.btn-success{
+  background-color: #3085d6 !important;
+  margin: 3px;
+}
+
+.btn-danger{
+  background-color: #d33 !important;
+  margin: 3px;
+}
+
 .force-total-center{
 	position: absolute !important;
 	left: 50% !important;
