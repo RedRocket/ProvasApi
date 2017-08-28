@@ -7,7 +7,7 @@ class Exam < ActiveRecord::Base
   has_many :exam_images
   has_many :scores
 
-  has_many :favorites
+  has_many :favorites, dependent: :delete_all
   scope :visible, -> { where(visible: true) }
 
   #
