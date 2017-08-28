@@ -1,5 +1,9 @@
 class Api::ScoresController < ApplicationController
 
+
+  #
+  # Create score and calculate new avarage
+  #
   def create
     @score = Score.new(score_params)
 
@@ -19,7 +23,6 @@ class Api::ScoresController < ApplicationController
   end
 
   private
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def score_params
       params.permit(:value, :user_id, :exam_id)

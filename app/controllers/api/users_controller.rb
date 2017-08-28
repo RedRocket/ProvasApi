@@ -6,6 +6,11 @@ class Api::UsersController < ApplicationController
     render json: @user.to_json(methods: [:exams_info])
   end
 
+  #
+  # Method for logging with Social Media
+  # It checks if user exists, then update push token
+  # Or create new user with its push token
+  #
   def login_sso
     @user = User.new(user_params)
 
@@ -27,12 +32,18 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  #
+  # Return group of exams from user
+  #
   def my_exams
     @exams = User.find_by(id: params["id"]).exams
 
     render json: @exams.to_json(include: :subject), status: :ok
   end
 
+  #
+  # Return grup of favorite exams from user
+  #
   def my_favorite_exams
     exams_id = Favorite.where(user_id: params["id"]).pluck(:exam_id)
 
@@ -41,6 +52,11 @@ class Api::UsersController < ApplicationController
     render json: @exams.to_json(include: :subject), status: :ok
   end
 
+  #
+  # Method for logging with Email and Password
+  # It checks if user exists, then update push token
+  # Or create new user with its push token
+  #
   def login_default
     @user = User.find_by email: user_params["email"], password: encrypt(user_params["password"])
 
@@ -70,6 +86,9 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  #
+  # Method for update users picture
+  #
   def upload_picture
     @user = User.find_by token: user_params["token"]
 

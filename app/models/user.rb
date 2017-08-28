@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
 
   before_save :create_hashed_password, if: :password_changed?
 
+  #
+  # Method to encrypt password
+  #
   def create_hashed_password
     self.password = password.crypt("ChaveDoProvas")
   end
@@ -25,6 +28,9 @@ class User < ActiveRecord::Base
     UserMailer.recover_token(self).deliver_now
   end
 
+  #
+  # Method to group info of user
+  #
   def exams_info
     averege_scores = 0
     exams_accounted_scores = 0

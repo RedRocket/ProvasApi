@@ -5,6 +5,9 @@ class ExamImage < ActiveRecord::Base
   mount_uploader :image_grey_scale, PhotoUploader
   mount_uploader :image_enhenced, PhotoUploader
 
+  #
+  # Method to convert image to black and white and save on Storage
+  #
   def process_image_black_and_white
     file_name = "#{Rails.root}/tmp/temp-#{self.id}.jpg"
 
@@ -33,6 +36,9 @@ class ExamImage < ActiveRecord::Base
   end
   handle_asynchronously :process_image_black_and_white
 
+  #
+  # Method to convert image to grey scale and save on Storage
+  #
   def process_image_grey_scale
     file_name = "#{Rails.root}/tmp/temp-#{self.id}.jpg"
 
@@ -57,7 +63,9 @@ class ExamImage < ActiveRecord::Base
   end
   handle_asynchronously :process_image_grey_scale
 
-
+  #
+  # Method to convert image to enhenced and save on Storage
+  #
   def process_image_enhenced
     file_name = "#{Rails.root}/tmp/temp-#{self.id}.jpg"
 
@@ -81,5 +89,4 @@ class ExamImage < ActiveRecord::Base
     self.exam.check_for_enhenced
   end
   handle_asynchronously :process_image_enhenced
-
 end

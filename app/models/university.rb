@@ -7,6 +7,9 @@ class University < ActiveRecord::Base
 
   mount_uploader :header, PhotoUploader
 
+  #
+  # Converting name to upcase and removing accent
+  #
   def convert_name
     self.name = I18n.transliterate(self.name).upcase
   end

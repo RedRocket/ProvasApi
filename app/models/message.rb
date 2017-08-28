@@ -1,6 +1,9 @@
 class Message < ActiveRecord::Base
   belongs_to :user
 
+  #
+  # Method to send pushes to group of users
+  #
   def self.send_pushes(users, text)
     push_tokens = users.pluck(:push_token)
 

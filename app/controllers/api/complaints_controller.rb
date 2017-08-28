@@ -1,7 +1,6 @@
 class Api::ComplaintsController < ApplicationController
   def create
     @complaint = Complaint.create(complaint_params)
-
     render json: @exam.to_json(), status: :ok
   end
 

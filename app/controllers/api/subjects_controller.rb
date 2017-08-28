@@ -1,4 +1,8 @@
 class Api::SubjectsController < ApplicationController
+
+  #
+  # Return group of exams in a subject
+  #
   def exams_in_subjects
     @exams = Subject.find(params[:id]).exams
     render json: @exams.to_json(include: :user), status: :ok

@@ -10,10 +10,17 @@ class Exam < ActiveRecord::Base
   has_many :favorites
   scope :visible, -> { where(visible: true) }
 
+  #
+  # Converting name to upcase and removing accent
+  #
   def convert_name
     self.name = I18n.transliterate(self.name).upcase
   end
 
+  #
+  # Check if exam all images are in grey
+  # Than update with status of process
+  #
   def check_for_grey_scale
     checker = true
     self.exam_images.each do |image|
@@ -26,6 +33,10 @@ class Exam < ActiveRecord::Base
   end
 
 
+  #
+  # Check if exam all images are in enhanced
+  # Than update with status of process
+  #
   def check_for_enhenced
     checker = true
     self.exam_images.each do |image|
@@ -37,6 +48,10 @@ class Exam < ActiveRecord::Base
     self.update(processed_enhenced: checker)
   end
 
+  #
+  # Check if exam all images are in black and white
+  # Than update with status of process
+  #
   def check_for_black_and_white
     checker = true
     self.exam_images.each do |image|

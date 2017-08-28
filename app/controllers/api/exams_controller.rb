@@ -11,18 +11,27 @@ class Api::ExamsController < ApplicationController
     render json: @exam.to_json(), status: :ok
   end
 
+  #
+  # Return group of images from an exam
+  #
   def get_images
     @images = Exam.find(params[:id]).exam_images
 
     render json: @images.to_json(), status: :ok
   end
 
+  #
+  # Return group of thumbnails from an exam
+  #
   def get_thumb
     @image = Exam.find(params[:id]).exam_images.first
 
     render json: @image.to_json(only: [:image_uncompressed, :exam_id]), status: :ok
   end
 
+  #
+  # Add image to exam
+  #
   def add_image
     @image = ExamImage.new(image_uncompressed: params[:image], exam_id: params[:exam_id])
     @image.save!
@@ -39,12 +48,19 @@ class Api::ExamsController < ApplicationController
     render json: @image.to_json(), status: :ok
   end
 
+
+  #
+  # Return list of exams visible and in order
+  #
   def list
     @exams = Exam.where(subject_id: params[:id]).visible.order('period DESC, created_at DESC')
 
     render json: @exams.to_json(include: :user), status: :ok
   end
 
+  #
+  # Remove image from exam
+  #
   def remove_images
     ExamImage.find(params[:id]).destroy
 
@@ -61,6 +77,10 @@ class Api::ExamsController < ApplicationController
     render json: {}.to_json(), status: :ok
   end
 
+
+  #
+  # Add view to exam
+  #
   def add_view
     @exam = Exam.find(params[:id])
 

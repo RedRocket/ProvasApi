@@ -4,6 +4,9 @@ class Course < ActiveRecord::Base
   belongs_to :university
   has_many :subjects
 
+  #
+  # Converting name to upcase and removing accent
+  #
   def convert_name
     self.name = I18n.transliterate(self.name).upcase
   end

@@ -51,6 +51,9 @@ class UsersController < ApplicationController
     end
   end
 
+  #
+  # Custom method to block an user
+  #
   def block
     new_state = !@user.blocked
     respond_to do |format|

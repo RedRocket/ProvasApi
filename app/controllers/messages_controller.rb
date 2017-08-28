@@ -14,6 +14,10 @@ class MessagesController < ApplicationController
     @cities = City.all
   end
 
+  #
+  # Method to create filtered group of messages
+  # Get exceptions in case of empty players array and in case of missing text
+  #
   def create_filtered
     @users = User.with_push_token
 
@@ -52,6 +56,10 @@ class MessagesController < ApplicationController
     end
   end
 
+  #
+  # Method send of Push Notifications to general
+  # Get exceptions in case of empty players array and in case of missing text
+  #
   def create
     if(params["selectAll"] != nil)
       @users = User.all

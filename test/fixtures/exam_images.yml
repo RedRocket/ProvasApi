@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  image: MyText
-  exam_id: 1
-
-two:
-  image: MyText
-  exam_id: 1
