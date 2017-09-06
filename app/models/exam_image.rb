@@ -30,7 +30,11 @@ class ExamImage < ActiveRecord::Base
 
     self.image_black_and_white = file
 
-    self.save!
+    begin
+      self.save!
+    rescue CarrierWave::ProcessingError => error
+      raise error.cause
+    end
 
     self.exam.check_for_black_and_white
   end
@@ -57,7 +61,11 @@ class ExamImage < ActiveRecord::Base
 
     self.image_grey_scale = file
 
-    self.save!
+    begin
+      self.save!
+    rescue CarrierWave::ProcessingError => error
+      raise error.cause
+    end
 
     self.exam.check_for_grey_scale
   end
@@ -84,7 +92,11 @@ class ExamImage < ActiveRecord::Base
 
     self.image_enhenced = file
 
-    self.save!
+    begin
+      self.save!
+    rescue CarrierWave::ProcessingError => error
+      raise error.cause
+    end
 
     self.exam.check_for_enhenced
   end
