@@ -87,8 +87,7 @@ Rails.application.configure do
       region:                'us-west-2',                  # optional, defaults to 'us-east-1'
       endpoint: 'http://s3-us-west-2.amazonaws.com',
     }
-    config.fog_directory  = 'elasticbeanstalk-us-west-2-941352463971',
-    config.ignore_processing_errors = true
+    config.fog_directory  = 'elasticbeanstalk-us-west-2-941352463971'
   end
 
   ActionMailer::Base.smtp_settings = {
