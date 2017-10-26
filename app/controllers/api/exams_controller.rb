@@ -15,7 +15,7 @@ class Api::ExamsController < ApplicationController
   # Return group of images from an exam
   #
   def get_images
-    @images = Exam.find(params[:id]).exam_images
+    @images = Exam.find(params[:id]).exam_images.order(created_at: :asc)
 
     render json: @images.to_json(), status: :ok
   end
